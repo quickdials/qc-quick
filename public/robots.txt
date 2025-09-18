@@ -1,0 +1,37 @@
+User-agent: *
+
+User-agent: Googlebot
+Allow: /
+
+User-agent:bingbot 
+Allow: /
+
+User-agent: Duckduckbot
+Allow: /
+
+User-agent: Baiduspider
+Disallow: /private/
+
+User-agent: YandexBot
+Disallow: /tmp/
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+
+User-agent: Slurp
+Disallow: /
+ 
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Msnbot
+Allow: /
+
+Sitemap: https://www.quickdials.com/quickdialssitemap.xml
+Disallow: /https://quickdials.in/
+Disallow: /https://quickdials.in
+Disallow: /https://qc.quickdials.com/
