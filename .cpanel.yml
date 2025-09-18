@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/quickrqw/qc.quickdials.com/
+    - /bin/cp * $DEPLOYPATH 
