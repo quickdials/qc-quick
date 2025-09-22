@@ -45,8 +45,8 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
-         //   'host' => '119.18.54.23',
-            'host' => 'localhost',
+           'host' => '119.18.54.23',
+           // 'host' => 'localhost',
             'port' => env('DB_PORT', '3306'),
 			'database' => 'quickrqw_qc-quick',
             'username' => 'quickrqw_qc-quick',

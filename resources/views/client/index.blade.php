@@ -679,6 +679,749 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
       </div>
       <div class="clearfix"></div>
    </div> -->
+
+	<!-- Popular Categories -->
+		<section class="popular-categories">
+			<div class="container">
+			<div class="popular-title text-center">
+				<h5 class="popular-title text-center">Popular Categories</h5>
+				 <div class="title_icon"><img src="/client/images/logo.png" alt="logo"></div>
+				
+				<div class="categories-grid">
+					<div class="category-card">
+						<span class="category-count">5,200+</span>
+						<div class="category-icon">🎓</div>
+						<h3>Coaching & Tuitions</h3>
+						<p>JEE, NEET, CAT, SSC, Banking, and competitive exam preparation</p>
+					</div>
+					
+					<div class="category-card">
+						<span class="category-count">3,800+</span>
+						<div class="category-icon">💼</div>
+						<h3>Business Services</h3>
+						<p>CA, Tax consultants, legal services, and business solutions</p>
+					</div>
+					
+					<div class="category-card">
+						<span class="category-count">4,500+</span>
+						<div class="category-icon">🏠</div>
+						<h3>Home Construction</h3>
+						<p>Architects, contractors, interior designers, and renovation services</p>
+					</div>
+					
+					<div class="category-card">
+						<span class="category-count">2,100+</span>
+						<div class="category-icon">💻</div>
+						<h3>Computer Courses</h3>
+						<p>Programming, web development, digital marketing, and IT training</p>
+					</div>
+								 
+					
+					<div class="category-card">
+						<span class="category-count">3,200+</span>
+						<div class="category-icon">🏥</div>
+						<h3>Medical Services</h3>
+						<p>Hospitals, clinics, diagnostic centers, and healthcare providers</p>
+					</div>
+					
+					<div class="category-card">
+						<span class="category-count">2,800+</span>
+						<div class="category-icon">🎉</div>
+						<h3>Wedding Services</h3>
+						<p>Event planners, caterers, photographers, and decoration services</p>
+					</div>
+									 
+				</div>
+			</div>
+			</div>
+         <style>
+               /* Popular Categories */
+        .popular-categories {
+            padding: 8px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #6b7280;
+            margin-bottom: 50px;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 25px;
+        }
+        
+        .category-card {
+            background: white;
+            border: 2px solid #f3f4f6;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+        
+        .category-card:hover::before {
+            opacity: 1;
+            animation: shimmer 1.5s ease-in-out;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .category-card h3 {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .category-card p {
+            color: #6b7280;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .category-count {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #3b82f6;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+         </style>
+		</section>
+ <!-- Featured Businesses -->
+    <section class="featured-businesses">
+        <div class="container">
+        <div class="popular-title text-center">
+            <h5 class="popular-title text-center">Featured Businesses</h5>
+            <div class="title_icon"><img src="/client/images/logo.png" alt="logo"></div> 
+            <div class="businesses-carousel">
+                <div class="business-card">
+                    <div class="business-header">
+                        <div class="business-logo">TC</div>
+                        <div class="business-info">
+                            <h4>TechCorp Solutions</h4>
+                            <div class="business-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-score">(4.8)</span>
+                            </div>
+                            <div class="business-category">IT Services</div>
+                        </div>
+                    </div>
+                    <p class="business-description">
+                        Leading IT solutions provider specializing in web development, mobile apps, and digital transformation services for businesses of all sizes.
+                    </p>
+                    <div class="business-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span>Sector 62, Noida</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📞</span>
+                            <span>+91 98765 43210</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🕒</span>
+                            <span>9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">✅</span>
+                            <span>Verified Business</span>
+                        </div>
+                    </div>
+                    <div class="business-actions">
+                        <a href="#" class="btn-view-details">View Details</a>
+                        <a href="#" class="btn-contact">Contact Now</a>
+                    </div>
+                </div>
+
+                <div class="business-card">
+                    <div class="business-header">
+                        <div class="business-logo" style="background: linear-gradient(135deg, #10b981, #059669);">EA</div>
+                        <div class="business-info">
+                            <h4>Excellence Academy</h4>
+                            <div class="business-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-score">(4.9)</span>
+                            </div>
+                            <div class="business-category">Coaching Institute</div>
+                        </div>
+                    </div>
+                    <p class="business-description">
+                        Top-rated coaching institute for JEE, NEET, and other competitive exams with experienced faculty and proven track record.
+                    </p>
+                    <div class="business-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span>Civil Lines, Delhi</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📞</span>
+                            <span>+91 87654 32109</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🎓</span>
+                            <span>500+ Students</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🏆</span>
+                            <span>95% Success Rate</span>
+                        </div>
+                    </div>
+                    <div class="business-actions">
+                        <a href="#" class="btn-view-details">View Details</a>
+                        <a href="#" class="btn-contact">Free Demo</a>
+                    </div>
+                </div>
+
+                <div class="business-card">
+                    <div class="business-header">
+                        <div class="business-logo" style="background: linear-gradient(135deg, #f59e0b, #d97706);">GF</div>
+                        <div class="business-info">
+                            <h4>Gourmet Flavors</h4>
+                            <div class="business-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-score">(4.7)</span>
+                            </div>
+                            <div class="business-category">Catering Service</div>
+                        </div>
+                    </div>
+                    <p class="business-description">
+                        Premium catering services for weddings, corporate events, and special occasions with diverse menu options and professional service.
+                    </p>
+                    <div class="business-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span>Connaught Place, Delhi</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📞</span>
+                            <span>+91 76543 21098</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👥</span>
+                            <span>50-5000 Guests</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🍽️</span>
+                            <span>Multi-cuisine</span>
+                        </div>
+                    </div>
+                    <div class="business-actions">
+                        <a href="#" class="btn-view-details">View Menu</a>
+                        <a href="#" class="btn-contact">Get Quote</a>
+                    </div>
+                </div>
+
+                <div class="business-card">
+                    <div class="business-header">
+                        <div class="business-logo" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">AC</div>
+                        <div class="business-info">
+                            <h4>Apex Consultancy</h4>
+                            <div class="business-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-score">(4.6)</span>
+                            </div>
+                            <div class="business-category">CA & Tax Services</div>
+                        </div>
+                    </div>
+                    <p class="business-description">
+                        Professional chartered accountancy firm offering comprehensive tax consulting, audit services, and financial advisory solutions.
+                    </p>
+                    <div class="business-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span>Nehru Place, Delhi</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📞</span>
+                            <span>+91 65432 10987</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📊</span>
+                            <span>1000+ Clients</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💼</span>
+                            <span>15+ Years Experience</span>
+                        </div>
+                    </div>
+                    <div class="business-actions">
+                        <a href="#" class="btn-view-details">View Services</a>
+                        <a href="#" class="btn-contact">Consult Now</a>
+                    </div>
+                </div>
+
+                <div class="business-card">
+                    <div class="business-header">
+                        <div class="business-logo" style="background: linear-gradient(135deg, #ef4444, #dc2626);">HD</div>
+                        <div class="business-info">
+                            <h4>HealthCare Diagnostics</h4>
+                            <div class="business-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-score">(4.8)</span>
+                            </div>
+                            <div class="business-category">Medical Services</div>
+                        </div>
+                    </div>
+                    <p class="business-description">
+                        State-of-the-art diagnostic center offering comprehensive health check-ups, pathology services, and medical consultations.
+                    </p>
+                    <div class="business-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span>Lajpat Nagar, Delhi</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📞</span>
+                            <span>+91 54321 09876</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🕒</span>
+                            <span>24/7 Available</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🏥</span>
+                            <span>NABL Accredited</span>
+                        </div>
+                    </div>
+                    <div class="business-actions">
+                        <a href="#" class="btn-view-details">View Tests</a>
+                        <a href="#" class="btn-contact">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="business-card">
+                    <div class="business-header">
+                        <div class="business-logo" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">DW</div>
+                        <div class="business-info">
+                            <h4>Dream Weddings</h4>
+                            <div class="business-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-score">(4.9)</span>
+                            </div>
+                            <div class="business-category">Event Planning</div>
+                        </div>
+                    </div>
+                    <p class="business-description">
+                        Complete wedding planning service with decoration, photography, catering, and venue management for your dream wedding.
+                    </p>
+                    <div class="business-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span>Rajouri Garden, Delhi</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📞</span>
+                            <span>+91 43210 98765</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💒</span>
+                            <span>500+ Weddings</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🎊</span>
+                            <span>Full Service</span>
+                        </div>
+                    </div>
+                    <div class="business-actions">
+                        <a href="#" class="btn-view-details">View Portfolio</a>
+                        <a href="#" class="btn-contact">Plan Wedding</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+<style>
+    /* Featured Businesses */
+        .featured-businesses {
+            padding: 8px 0;
+            
+        }
+        
+        .businesses-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .business-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .business-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4, #10b981);
+            transition: left 0.5s ease;
+        }
+        
+        .business-card:hover::before {
+            left: 0;
+        }
+        
+        .business-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .business-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .business-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-right: 15px;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .business-info h4 {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1e3a8a;
+        }
+        
+        .business-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            font-size: 1rem;
+        }
+        
+        .rating-score {
+            color: #6b7280;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .business-category {
+            color: #3b82f6;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .business-description {
+            color: #6b7280;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .business-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6b7280;
+        }
+        
+        .detail-icon {
+            font-size: 1rem;
+            min-width: 16px;
+        }
+        
+        .business-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .btn-view-details, .btn-contact {
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .btn-view-details {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .btn-contact {
+            background: #f3f4f6;
+            color: #1e3a8a;
+        }
+        
+        .btn-view-details:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-contact:hover {
+            background: #e5e7eb;
+            transform: translateY(-2px);
+        }
+</style>
+
+
+    </section>
+
+ <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+        <div class="popular-title text-center">
+            <h5 class="popular-title text-center">Business Services</h5>
+             <div class="title_icon"><img src="/client/images/logo.png" alt="logo"></div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">🏥</div>
+                    <h4>Patient Care</h4>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🔧</div>
+                    <h4>Home Appliances</h4>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">📦</div>
+                    <h4>Packers Movers</h4>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">❄️</div>
+                    <h4>AC Services</h4>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🧹</div>
+                    <h4>Cleaning</h4>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🛡️</div>
+                    <h4>Security Guards</h4>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🏗️</div>
+                    <h4>Architects</h4>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🔨</div>
+                    <h4>Contractors</h4>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🎨</div>
+                    <h4>Interior Design</h4>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🍳</div>
+                    <h4>Modular Kitchen</h4>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🎯</div>
+                    <h4>Digital Marketing</h4>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">💡</div>
+                    <h4>Electric Services</h4>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <style>
+  /* Services Section */
+        .services-section {
+            padding: 8px 0;
+            background: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 20px;
+        }
+        
+        .service-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+        }
+        
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .service-item h4 {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        /* Call to Action */
+        .cta-section {
+               background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            margin: 31px 0px;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="20" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2.5" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-cta {
+            background: white;
+            color: #059669;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+         </style>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>List Your Business on Quick Dials</h2>
+                <p>Reach thousands of potential customers in your area. Increase your business visibility and grow your customer base with our platform. It's completely free to get started!</p>
+                <a href="{{ url('business-owners') }}" class="btn-cta" target="_blank">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+
+
    <div class="">
       <div class="clearfix"></div>
       <h2 class="title">Our <span>Study Abroad</a></span> </h2>
@@ -716,6 +1459,9 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
       </div>
       <div class="clearfix"></div>
    </div>
+
+   	
+
    
    <div class="blog" >
       <div class="tab-content">

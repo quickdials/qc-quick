@@ -57,11 +57,13 @@ body { font: normal 14px/17px 'robotoregular'; font-family: "Poppins", sans-seri
 	z-index:9;
 	height:70px;
 	box-shadow: 0 0 5px 0 #bbb;
-    max-width: 1440px;
+    /* max-width: 1440px; */
 	}
    #header .head-list{
-    margin: 0;
-    padding: 0;
+   width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
     }
 #header .logo{
 	float:left;-moz-transition: all 0.3s ease-in-out 0s;
@@ -86,7 +88,7 @@ body { font: normal 14px/17px 'robotoregular'; font-family: "Poppins", sans-seri
     margin-top:8px;
 } */
 #header .head-right-lout {
-    width: 50%;
+    /* width: 50%; */
     float: right;
     text-align: right;
     color: #cbcbcb;
@@ -94,7 +96,7 @@ body { font: normal 14px/17px 'robotoregular'; font-family: "Poppins", sans-seri
     margin-top: 0px;
 }
 #header .head-left {
-        width: 24%;
+        /* width: 24%; */
     float: left;
     text-align: center;
     color: #cbcbcb;
@@ -112,7 +114,7 @@ body { font: normal 14px/17px 'robotoregular'; font-family: "Poppins", sans-seri
 }
 
 #header .head-right {
-    width: 23%;
+    /* width: 23%; */
     color: #cbcbcb;
     font-size: 15px;
     top: -14px;
@@ -138,9 +140,9 @@ body { font: normal 14px/17px 'robotoregular'; font-family: "Poppins", sans-seri
       100% { color: #5AB70F; }   /* back to red */
     }
 
-.container{
-    width: 100%;
-}
+ 
+
+
 .resultCode{
     background: #f7fbff;
    
@@ -1497,11 +1499,11 @@ width:300px;
 /***************links-resp************************/
 
 .links-resp {
-	background: #212c2e none repeat scroll 0 0;
+	background: #fff none repeat scroll 0 0;
 	padding: 1px 0 1px;
+    border-top: 1px solid #f6f6f6;
 }
-.links-resp .latest-courses-resp {
-}
+ 
 .links-resp .latest-courses-resp .heading-full {
 	margin-bottom: 30px;
 	padding: 0 0px;
@@ -1559,13 +1561,12 @@ width:300px;
 	position: absolute;
 	text-decoration: inherit;
 }
-.links-resp .follow-sticker {
-}
-.links-resp .follow-sticker ul li a:first-child {
+ 
+  .follow-sticker ul li a:first-child {
 	margin-left: 0;
 }
-.links-resp .follow-sticker ul li a {
-	background-color: #fff;
+  .follow-sticker ul li a {
+	background-color: #e2dcdc;
 	background-position: center center;
 	background-repeat: no-repeat;
 	border-radius: 50px;
@@ -1577,7 +1578,7 @@ width:300px;
 	width: 40px;
 	position: relative;
 }
-.links-resp .follow-sticker ul li a i {
+  .follow-sticker ul li a i {
 	 
 	font-size: 20px;
 	left: 10px;
@@ -1585,41 +1586,42 @@ width:300px;
 	text-align: center;
 	top: 10px;
 }
-.links-resp .follow-sticker ul li a.facebook i {
+  .follow-sticker ul li a.facebook i {
 	left: 14px;
 }
-.links-resp .follow-sticker ul li a:hover {
+ .follow-sticker ul li a:hover {
 	background: #cbcbcb;
 	transition: background 0.6s ease 0s
 }
-.links-resp .follow-sticker ul li a.facebook i {
+.follow-sticker ul li a.facebook i {
 	color: #3c599f;
 	transition: color 0.6s ease 0s
 }
-.links-resp .follow-sticker ul li a.twitter i {
+.follow-sticker ul li a.twitter i {
 	color: #00b5ef;
 	transition: color 0.6s ease 0s
 }
-.links-resp .follow-sticker ul li a.linkedIn i {
+ .follow-sticker ul li a.linkedIn i {
 	color: #0077B5;
 	transition: color 0.6s ease 0s
 }
-.links-resp .follow-sticker ul li a.youTube i {
+ .follow-sticker ul li a.youTube i {
 	color: #ec2828;
 	transition: color 0.6s ease 0s
 }
-.links-resp .follow-sticker ul li a.pinterest i {
+ .follow-sticker ul li a.pinterest i {
 	color: #c8232c;
 	transition: color 0.6s ease 0s
 }
-.links-resp .follow-sticker ul li a.instagram i {
+  .follow-sticker ul li a.instagram i {
 	color: #FF0000;
 	transition: color 0.6s ease 0s
-}.links-resp .follow-sticker ul li a.quora i {
+}
+.follow-sticker ul li a.quora i {
 	color: #AA2200;
 	transition: color 0.6s ease 0s
 }
-.links-resp .social-wrapper {
+.social-wrapper {
 	background: #000;
 	margin-top: 20px;
 }
@@ -1642,13 +1644,13 @@ width:300px;
 .links-resp .disclaimer-box{	margin-top:10px;}
 .links-resp .copyright-box p {
 	font-size: 11px;
-	color: #cbcbcb;
+	color: #000;
 	text-align: left;
 	font-weight: 600;
 }
 .links-resp .disclaimer-box p {
 	font-size: 10px;
-	color: #cbcbcb;
+	color: #000;
 	text-align: right;
 	font-weight: 600;
 }
@@ -1680,8 +1682,11 @@ width:300px;
   position:relative;
   margin-bottom:40px;
 }
-
-.links-resp .disclaimer-box p a{color:#fff!important;}
+ #header .head-list {
+    margin: 0;
+    padding: 0;
+}
+.links-resp .disclaimer-box p a{color:#1b41db!important;}
 
 
 
@@ -2060,14 +2065,15 @@ object-fit:contain
     background: linear-gradient(360deg, #000080, #ffffff);
     }
 .footer-new {
-    background: #f4f3f3;
-    float: left;
-    width: 100%;
-    padding-top: 40px;
-    border-top: 1px solid #ccc;
-    padding-bottom: 40px;
-        margin-top: 50px;
+    
+    padding-top: 40px; 
+    padding-bottom: 10px;   
 }
+   .container {
+            max-width: 1480px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
 .container-fluid {
     width: 100%;
     padding-right: 15px;

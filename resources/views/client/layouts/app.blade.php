@@ -116,8 +116,8 @@
 }
 </script>
 
-   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-0B7X99VQ0W"></script>
-    <script>
+   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-0B7X99VQ0W"></script>-->
+  <!--  <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
@@ -125,7 +125,7 @@
         gtag('config', 'G-0B7X99VQ0W');
     </script>-->
     <!-- Google Tag Manager -->
-   <!-- <script>(function (w, d, s, l, i) {
+    <!--<script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
                 'gtm.start':
                     new Date().getTime(), event: 'gtm.js'
@@ -144,7 +144,7 @@
             style="display:none;visibility:hidden"></iframe></noscript>-->
     <!-- End Google Tag Manager(noscript)-->
 
-
+ 
     <header id="header">
         <div class="container">
             <div class="head-list">
@@ -581,7 +581,7 @@
 
 
     <div class="footer-new">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-12 col-sm-12">
                     <h2>A Few Stats About <span> quickdials </span></h2>
@@ -640,40 +640,129 @@
             </div>
         </div>
     </div>
-    <footer>
 
-        <section class="address-box">
-            <div class="container">
-                <div class="col-md-12 col-sm-12 foot-new-link">
-
-
-                    <ul>
-                        <li><a href="{{url('/about-us')}}" title="About Us">About Us</a></li>
-                        <li><a href="{{url('/pricing')}}" title="pricing">Package Pricing</a></li>
-                        <li><a href="{{url('/careers')}}" title="Careers">Careers</a></li>
-                        <li><a href="{{url('/contact-us')}}" title="Contact Us">Contact Us</a></li>
-                        <li><a href="{{url('blog')}}" title="Blog">Blog</a></li>
-                        <li><a href="{{url('business-owners')}}" rel="nofollow"
+ <footer class="footer">
+    <style>
+        .footer {
+     
+    color: #000;
+    padding: 60px 0 20px;
+        border-top: 1px solid #f6f6f6;
+}
+.footer-content {  
+    margin-bottom: 40px;
+    display: inline-flex;     
+    gap: 90px;
+}
+.footer-section h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #000;
+    padding: 0px 24px;
+}
+.footer-links {
+    list-style: none;
+}
+.footer-links li {
+    margin-bottom: 7px;
+}
+.footer-links a {
+    
+    text-decoration: none;
+    transition: color 0.3s;    
+    color: #000;
+    padding: 0 8px;
+  
+}
+.footer-links a::before {
+    content: "▶ ";
+    font-size: 0.7rem;
+    margin-right: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.footer-bottom {
+    border-top: 1px solid #334155;
+    padding-top: 20px;
+    text-align: center;
+    color: #94a3b8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+    </style>
+     <section class="">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{url('/about-us')}}">About Us</a></li>
+                        <li><a href="{{ url('business-owners') }}">Featured Listings</a></li>
+                        <li><a href="{{url('/pricing')}}">Premium Plans</a></li>
+                        <li><a href="{{url('/careers')}}">Careers</a></li>
+                        <li><a href="{{url('blog')}}">Success Stories</a></li>
+                        <li><a href="{{url('blog')}}">Blog</a></li>
+                         <li><a href="{{url('business-owners')}}" rel="nofollow"
                                 title="Advertise on quickdials">Advertise on quickdials</a></li>
-                        <!--<li><a href="{{url('official/terms-conditions')}}" title="Terms & Conditions">Terms & Conditions</a></li>-->
                         <li><a href="{{url('/privacy-policy')}}" title="Privacy Policy">Privacy Policy</a></li>
+                        <li><a href="{{url('terms-conditions')}}" title="Terms & Conditions">Terms & Conditions</a></li>
                         <li><a href="{{url('/copyright-policy')}}" title="Copyright Policy">Copyright Policy</a></li>
                     </ul>
-
                 </div>
-
-
-            </div>
-        </section>
-
-        <section class="links-resp">
-            <div class="paybox">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4 col-md-4">
-                            <div class="follow-sticker">
+                
+                <div class="footer-section">
+                    <h3>Popular Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="{{ url('categories/professional-courses') }}">Coaching & Tuitions</a></li>
+                        <li><a href="{{ url('child/wedding-planning') }}">Wedding Planning</a></li>
+                        <li><a href="{{ url('category/health-wellness') }}">Healthcare</a></li>
+                        <li><a href="{{ url('category/real-estate-agent') }}">Real Estate</a></li>
+                        <li><a href="{{ url('categories/electric-services') }}">Electric Services</a></li>
+                        <li><a href="{{ url('categories/security-system') }}">Security System</a></li>
+                        <li><a href="{{ url('categories/medical') }}">Medical</a></li>
+                        <li><a href="{{ url('categories/packers-movers') }}">Packers Movers</a></li>
+                        <li><a href="restaurants" class="keystore">Restaurants</a></li>
+                        <li><a href="hotels" class="keystore">Hotels</a></li>
+                       <li><a href="interior-designer" class="keystore">interior Design</a></li>
+                     
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Business Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="patient-care-service" class="keystore">Patient Care Service</a></li>
+                        <li><a href="home-appliance-repair-training" class="keystore">Home Appliances Repair</a></li>
+                        <li><a href="wedding-organisers" class="keystore">Wedding Organisers</a></li>
+                        <li><a href="ac-service" class="keystore">AC Services</a></li>
+                        <li><a href="security-guards-services" class="keystore">Security Guards</a></li>
+                        <li><a href="cleaning-services" class="keystore">Cleaning Services</a></li>
+                        <li><a href="{{ url('categories/repairs-services') }}">Repairs Services</a></li>
+                       <li><a href="{{ url('categories/spa-beauty') }}">SPA Beauty</a></li>
+                       <li><a href="{{ url('child/loan') }}">Loan</a></li>
+                       <li><a href="income-tax-consultants" class="keystore">Tax Consultants</a></li>
+                       <li><a href="{{ url('categories/computer-courses') }}" >Computer Courses</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support & Contact</h3>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong><a href="mailto:support@quickdials.com" class="email">support@quickdials.com</a></p>
+                       <p><strong>Phone:</strong> <a href="tel:+917011310265">+917011310265</a></p>
+                      
+                        <p>🕒 Mon-Sat: 9:00 AM - 7:00 PM</p>
+                    </div>
+                    <div class="social-links">
+                       
+     <div class="follow-sticker">
                                 <h4
-                                    style="color:#FFF;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid #aaa;">
+                                    style="color:#000;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid #aaa;">
                                     Follow Us</h4>
                                 <ul class="list-inline">
                                     <li><a class="facebook"
@@ -691,31 +780,23 @@
                                     <!-- <li><a class="quara"  href="https://www.quora.com/profile/quickdials" title="Follow us on Quara"><i class="fa fa-quora"></i></a></li>-->
                                 </ul>
                             </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <h4 style="color:#FFF;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid #aaa;">
-                                Subscribe to our Newsletter</h4>
-                            <form action="{{url('newsletter')}}" method="POST" onsubmit="return newsletter(this)">
-                                <div class="input-group">
-                                    <input type="email" name="email" class="form-control" placeholder="Enter Email">
-                                    <span class="input-group-btn">
-                                        <input type="reset" class="hide" name="reset" />
-                                        <button class="btn btn-primary" type="submit"><i
-                                                class="fa fa-paper-plane"></i></button>
-                                    </span>
-                                </div>
-                                <em class="nl_err" style="color:red;padding-top:20px;"></em>
-                            </form>
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <h4 style="color:#FFF;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid #aaa;">
-                                We Accept Online Payments</h4>
-                            <img src="<?php echo asset('client/images/payments.png'); ?>" class="img-responsive"
-                                alt="payments" style="max-width:240px;">
-                        </div>
+
+                        
                     </div>
                 </div>
-            </div>
+            </div>            
+             
+        </div>
+</section>
+    </footer>
+
+
+    <footer>
+
+        
+
+        <section class="links-resp">
+          
             <div class="container">
                 <div class="copyright-box col-lg-5">
                     <div class="row">
@@ -725,7 +806,7 @@
                 <div class="disclaimer-box col-lg-7">
                     <div class="row">
                         <p>The certification names and logos are the trademarks of their respective owners. <a
-                                href="#">View Disclaimer</a></p>
+                                href="{{url('/privacy-policy')}}">View Disclaimer</a></p>
                     </div>
                 </div>
             </div>
