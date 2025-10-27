@@ -887,7 +887,6 @@ div.form-section p{
     margin-bottom: 2%;
 }
 .form-txt{
-    float:right;
     font-size: 12px;
     font-weight: bold;
     color:#4e4e4e;
@@ -1706,6 +1705,7 @@ width:300px;
     float:left;
     padding-left:0;
     margin-bottom:30px;
+    width: 100%;
     }
 .reviews-box-1 {
    background: #fff none repeat scroll 0 0;
@@ -2991,7 +2991,7 @@ h1, h2, h3, h4 {
     min-height: 80px;
 }
 p {
-    padding: 0 0 10px;
+    /* padding: 0 0 10px; */
     font-size: 13px;
 }
 .review-list ul>li:hover {
@@ -3713,13 +3713,13 @@ form span{
     margin: 1px 0px 15px 0px;
     display: inline-flex;
     grid-gap: 0px 3px;
-    background-color: #fbfbfb;
+    /* background-color: #fbfbfb; */
     cursor: pointer;
     font-size: 14px;
     color:#000 !important;
     }
     .course-program ul li:hover {
-        background-color: #ddd;
+        /* background-color: #ddd; */
     }
     .course-program a{
         color:#000 !important;

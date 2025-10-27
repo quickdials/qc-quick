@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit88970a0117c062eed55fa8728fc43833
+class ComposerStaticInit574657d201d41a026830732dd2ea39e0
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -542,6 +542,19 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
     );
 
     public static $classMap = array (
+        'App\\Http\\Controllers\\Api\\AccountController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/AccountController.php',
+        'App\\Http\\Controllers\\Api\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/AuthController.php',
+        'App\\Http\\Controllers\\Api\\BusinessController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/BusinessController.php',
+        'App\\Http\\Controllers\\Api\\BusinessDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/BusinessDashboardController.php',
+        'App\\Http\\Controllers\\Api\\BusinessDiscussionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/BusinessDiscussionController.php',
+        'App\\Http\\Controllers\\Api\\BusinessKeywordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/BusinessKeywordController.php',
+        'App\\Http\\Controllers\\Api\\BusinessLocationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/BusinessLocationController.php',
+        'App\\Http\\Controllers\\Api\\BusinessLogoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/BusinessLogoController.php',
+        'App\\Http\\Controllers\\Api\\EnquiryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/EnquiryController.php',
+        'App\\Http\\Controllers\\Api\\InvoiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/InvoiceController.php',
+        'App\\Http\\Controllers\\Api\\LeadBusinessController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/LeadBusinessController.php',
+        'App\\Http\\Controllers\\Api\\PersonalDetailsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/PersonalDetailsController.php',
+        'App\\Http\\Controllers\\Api\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ProfileController.php',
         'App\\Http\\Controllers\\AreaController' => __DIR__ . '/../..' . '/app/Http/Controllers/AreaController.php',
         'App\\Http\\Controllers\\Auth\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
@@ -555,8 +568,20 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'App\\Http\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/BlogController.php',
         'App\\Http\\Controllers\\BulkUploadController' => __DIR__ . '/../..' . '/app/Http/Controllers/BulkUploadController.php',
         'App\\Http\\Controllers\\BusinessKeywordController' => __DIR__ . '/../..' . '/app/Http/Controllers/BusinessKeywordController.php',
+        'App\\Http\\Controllers\\Business\\AccountController' => __DIR__ . '/../..' . '/app/Http/Controllers/Business/AccountController.php',
+        'App\\Http\\Controllers\\Business\\BusinessController' => __DIR__ . '/../..' . '/app/Http/Controllers/Business/BusinessController.php',
+        'App\\Http\\Controllers\\Business\\BusinessDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Business/BusinessDashboardController.php',
+        'App\\Http\\Controllers\\Business\\BusinessDiscussionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Business/BusinessDiscussionController.php',
+        'App\\Http\\Controllers\\Business\\BusinessKeywordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Business/BusinessKeywordController.php',
+        'App\\Http\\Controllers\\Business\\BusinessLocationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Business/BusinessLocationController.php',
+        'App\\Http\\Controllers\\Business\\BusinessLogoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Business/BusinessLogoController.php',
+        'App\\Http\\Controllers\\Business\\EnquiryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Business/EnquiryController.php',
+        'App\\Http\\Controllers\\Business\\InvoiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Business/InvoiceController.php',
+        'App\\Http\\Controllers\\Business\\PersonalDetailsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Business/PersonalDetailsController.php',
+        'App\\Http\\Controllers\\Business\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Business/ProfileController.php',
         'App\\Http\\Controllers\\ChildCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChildCategoryController.php',
         'App\\Http\\Controllers\\CitiesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CitiesController.php',
+        'App\\Http\\Controllers\\ClassifiedProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClassifiedProfileController.php',
         'App\\Http\\Controllers\\ClientAuth\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClientAuth/AuthController.php',
         'App\\Http\\Controllers\\ClientCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClientCategoryController.php',
         'App\\Http\\Controllers\\Client\\BusinessController' => __DIR__ . '/../..' . '/app/Http/Controllers/Client/BusinessController.php',
@@ -581,6 +606,7 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'App\\Http\\Controllers\\LogoutController' => __DIR__ . '/../..' . '/app/Http/Controllers/LogoutController.php',
         'App\\Http\\Controllers\\MeetingController' => __DIR__ . '/../..' . '/app/Http/Controllers/MeetingController.php',
         'App\\Http\\Controllers\\ModeController' => __DIR__ . '/../..' . '/app/Http/Controllers/ModeController.php',
+        'App\\Http\\Controllers\\OccupationController' => __DIR__ . '/../..' . '/app/Http/Controllers/OccupationController.php',
         'App\\Http\\Controllers\\Official\\OfficialController' => __DIR__ . '/../..' . '/app/Http/Controllers/Official/OfficialController.php',
         'App\\Http\\Controllers\\OrderHistoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrderHistoryController.php',
         'App\\Http\\Controllers\\ParentCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/ParentCategoryController.php',
@@ -588,6 +614,9 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'App\\Http\\Controllers\\PushLeadController' => __DIR__ . '/../..' . '/app/Http/Controllers/PushLeadController.php',
         'App\\Http\\Controllers\\RolesAndCapabilitiesController' => __DIR__ . '/../..' . '/app/Http/Controllers/RolesAndCapabilitiesController.php',
         'App\\Http\\Controllers\\RolesPermissionsController' => __DIR__ . '/../..' . '/app/Http/Controllers/RolesPermissionsController.php',
+        'App\\Http\\Controllers\\SeoCityController' => __DIR__ . '/../..' . '/app/Http/Controllers/SeoCityController.php',
+        'App\\Http\\Controllers\\SeoKwdAssignController' => __DIR__ . '/../..' . '/app/Http/Controllers/SeoKwdAssignController.php',
+        'App\\Http\\Controllers\\SeoWorkController' => __DIR__ . '/../..' . '/app/Http/Controllers/SeoWorkController.php',
         'App\\Http\\Controllers\\SitemapsController' => __DIR__ . '/../..' . '/app/Http/Controllers/SitemapsController.php',
         'App\\Http\\Controllers\\TestimonialsController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestimonialsController.php',
         'App\\Http\\Controllers\\TransactionController' => __DIR__ . '/../..' . '/app/Http/Controllers/TransactionController.php',
@@ -615,28 +644,43 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'App\\Models\\ChildCategory' => __DIR__ . '/../..' . '/app/Models/ChildCategory.php',
         'App\\Models\\Citieslists' => __DIR__ . '/../..' . '/app/Models/Citieslists.php',
         'App\\Models\\City' => __DIR__ . '/../..' . '/app/Models/City.php',
+        'App\\Models\\ClassifiedProfile' => __DIR__ . '/../..' . '/app/Models/ClassifiedProfile.php',
         'App\\Models\\Client' => __DIR__ . '/../..' . '/app/Models/Client.php',
         'App\\Models\\ClientCategory' => __DIR__ . '/../..' . '/app/Models/ClientCategory.php',
+        'App\\Models\\Client\\AssignedKWDS' => __DIR__ . '/../..' . '/app/Models/Client/AssignedKWDS.php',
         'App\\Models\\Client\\Client' => __DIR__ . '/../..' . '/app/Models/Client/Client.php',
         'App\\Models\\Client\\Comment' => __DIR__ . '/../..' . '/app/Models/Client/Comment.php',
+        'App\\Models\\Contacts' => __DIR__ . '/../..' . '/app/Models/Contacts.php',
         'App\\Models\\Keyword' => __DIR__ . '/../..' . '/app/Models/Keyword.php',
         'App\\Models\\KeywordSellCount' => __DIR__ . '/../..' . '/app/Models/KeywordSellCount.php',
         'App\\Models\\Lead' => __DIR__ . '/../..' . '/app/Models/Lead.php',
         'App\\Models\\LeadFollowUp' => __DIR__ . '/../..' . '/app/Models/LeadFollowUp.php',
         'App\\Models\\Meeting' => __DIR__ . '/../..' . '/app/Models/Meeting.php',
         'App\\Models\\Modesdetails' => __DIR__ . '/../..' . '/app/Models/Modesdetails.php',
+        'App\\Models\\Occupation' => __DIR__ . '/../..' . '/app/Models/Occupation.php',
         'App\\Models\\ParentCategory' => __DIR__ . '/../..' . '/app/Models/ParentCategory.php',
         'App\\Models\\PaymentHistory' => __DIR__ . '/../..' . '/app/Models/PaymentHistory.php',
         'App\\Models\\Permission' => __DIR__ . '/../..' . '/app/Models/Permission.php',
         'App\\Models\\PushLead' => __DIR__ . '/../..' . '/app/Models/PushLead.php',
+        'App\\Models\\RazorpayHistory' => __DIR__ . '/../..' . '/app/Models/RazorpayHistory.php',
         'App\\Models\\RolePermission' => __DIR__ . '/../..' . '/app/Models/RolePermission.php',
         'App\\Models\\RolesAndCapabilities' => __DIR__ . '/../..' . '/app/Models/RolesAndCapabilities.php',
+        'App\\Models\\SeoKwdAssign' => __DIR__ . '/../..' . '/app/Models/SeoKwdAssign.php',
+        'App\\Models\\SeoLog' => __DIR__ . '/../..' . '/app/Models/SeoLog.php',
+        'App\\Models\\SeoWork' => __DIR__ . '/../..' . '/app/Models/SeoWork.php',
+        'App\\Models\\State' => __DIR__ . '/../..' . '/app/Models/State.php',
         'App\\Models\\Status' => __DIR__ . '/../..' . '/app/Models/Status.php',
         'App\\Models\\Testimonialsdetail' => __DIR__ . '/../..' . '/app/Models/Testimonialsdetail.php',
         'App\\Models\\Transaction' => __DIR__ . '/../..' . '/app/Models/Transaction.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\Version' => __DIR__ . '/../..' . '/app/Models/Version.php',
         'App\\Models\\Zone' => __DIR__ . '/../..' . '/app/Models/Zone.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
+        'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Providers\\SeoLogServiceProvider' => __DIR__ . '/../..' . '/app/Providers/SeoLogServiceProvider.php',
+        'App\\Providers\\VersionsServicesProvider' => __DIR__ . '/../..' . '/app/Providers/VersionsServicesProvider.php',
+        'App\\Services\\SeoLogService' => __DIR__ . '/../..' . '/app/Services/SeoLogService.php',
+        'App\\Services\\VersionsServices' => __DIR__ . '/../..' . '/app/Services/VersionsServices.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
@@ -7166,9 +7210,9 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit88970a0117c062eed55fa8728fc43833::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit88970a0117c062eed55fa8728fc43833::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit88970a0117c062eed55fa8728fc43833::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit574657d201d41a026830732dd2ea39e0::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit574657d201d41a026830732dd2ea39e0::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit574657d201d41a026830732dd2ea39e0::$classMap;
 
         }, null, ClassLoader::class);
     }

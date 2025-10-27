@@ -1283,7 +1283,7 @@
             padding: 3px;
             border-radius: 15px;
             background-color: #fff;
-            box-shadow: 0 0 5px 0 #bbb;
+            /* box-shadow: 0 0 5px 0 #bbb; */
             width: 106px;
         }
 
@@ -1298,7 +1298,6 @@
             transition: .3s ease-in;
             border-radius: 15px;
             width: 100%;
-            height: 65px;
         }
 
         .popular-div .grid-info h3 {

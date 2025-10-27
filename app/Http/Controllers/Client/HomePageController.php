@@ -7,13 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddLeadRequest;
-use DB;
 use Mail;
-use Artisan;
-use Validator;
-//model
 use App\Models\Keyword;
-
 use App\Models\Citieslists;
 use App\Models\Lead;
 use App\Models\ChildCategory;
@@ -27,6 +22,9 @@ use App\Models\LeadFollowUp;
 use App\Models\Status;
 use App\Models\Contacts;
 use App\Models\Client\Comment;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+
 class HomePageController extends Controller
 {
 	/**
@@ -38,16 +36,9 @@ class HomePageController extends Controller
 	{
 		$menuArr = [];
 		$parentCategories = ParentCategory::take(7)->whereIn('parent_slug', ['packers-movers', 'hospitals', 'computer-courses', 'study-abroad', 'spa-beauty', 'restaurants', 'schools--colleges', 'home-services', 'event-organizers'])->get();
-		$clientCategories = DB::table('parent_category as cc')
-			->leftJoin(DB::raw('(SELECT acc.client_category_id, COUNT(acc.client_category_id) as clients_count FROM assigned_client_categories acc INNER JOIN clients c ON c.id=acc.client_id  GROUP BY acc.client_category_id) AS cmt'), 'cc.id', '=', 'cmt.client_category_id')
-			->select('cc.*', 'cmt.*')
-			//->where('cc.pc_icon','!=','')
-			->take(8)
-			->get();
-
+		$clientCategories = DB::table('parent_category as cc')->leftJoin(DB::raw('(SELECT acc.client_category_id, COUNT(acc.client_category_id) as clients_count FROM assigned_client_categories acc INNER JOIN clients c ON c.id=acc.client_id  GROUP BY acc.client_category_id) AS cmt'), 'cc.id', '=', 'cmt.client_category_id')->select('cc.*', 'cmt.*')->take(8)->get();
 		$clients = Client::get();
 		$cities = DB::table('citylists')->select('id', 'city')->orderby('city', 'desc')->get();
-
 		if (!empty($parentCategories)) {
 			foreach ($parentCategories as $parentCategory) {
 				$childCategories = ChildCategory::where('parent_category_id', $parentCategory->id)->get();
@@ -57,31 +48,14 @@ class HomePageController extends Controller
 				}
 			}
 		}
-
 		$blogdetails = Blogdetails::where('status', '1')->limit(3)->orderBy('id', 'DESC')->get();
 		$testimonialsdetails = Testimonialsdetail::limit(3)->orderBy('id', 'DESC')->get();
 		$part_id = ParentCategory::where('parent_slug', 'computer-courses')->first();
-		$subcategory = DB::table('child_category')
-			->join('parent_category', 'child_category.parent_category_id', '=', 'parent_category.id')
-			->where('parent_category_id', $part_id->id)
-			->select('parent_category.*', 'child_category.*')->limit(24)
-			->get();
-
+		$subcategory = DB::table('child_category')->join('parent_category', 'child_category.parent_category_id', '=', 'parent_category.id')->where('parent_category_id', $part_id->id)->select('parent_category.*', 'child_category.*')->limit(24)->get();
 		$entrance_id = ParentCategory::where('parent_slug', 'entrance-exams-coaching')->first();
-
-		$entranceExam = DB::table('child_category')
-			->join('parent_category', 'child_category.parent_category_id', '=', 'parent_category.id')
-			->where('parent_category_id', $entrance_id->id)
-			->select('parent_category.*', 'child_category.*')->limit(24)
-			->get();
-
+		$entranceExam = DB::table('child_category')->join('parent_category', 'child_category.parent_category_id', '=', 'parent_category.id')->where('parent_category_id', $entrance_id->id)->select('parent_category.*', 'child_category.*')->limit(24)->get();
 		$studyAbroad_id = ParentCategory::where('parent_slug', 'study-abroad')->first();
-
-		$studyAbroad = DB::table('child_category')
-			->join('parent_category', 'child_category.parent_category_id', '=', 'parent_category.id')
-			->where('parent_category_id', $studyAbroad_id->id)
-			->select('parent_category.*', 'child_category.*')->limit(24)
-			->get();
+		$studyAbroad = DB::table('child_category')->join('parent_category', 'child_category.parent_category_id', '=', 'parent_category.id')->where('parent_category_id', $studyAbroad_id->id)->select('parent_category.*', 'child_category.*')->limit(24)->get();
 		return view('client.index', ['menuArr' => $menuArr, 'clientCategories' => $clientCategories, 'citiesList' => $cities, 'clients' => $clients, 'blogdetails' => $blogdetails, 'testimonialsdetails' => $testimonialsdetails, 'subcategory' => $subcategory, 'entranceExam' => $entranceExam, 'studyAbroad' => $studyAbroad]);
 	}
 
@@ -97,10 +71,9 @@ class HomePageController extends Controller
 
 			if ($validator->fails()) {
 				$errorsBag = $validator->getMessageBag()->toArray();
-
 				return response()->json(['status' => 1, 'errors' => $errorsBag], 400);
 			}
-			$lead = new Lead;		 
+			$lead = new Lead;
 			$string = filter_var($request->input('name'), FILTER_SANITIZE_STRING);
 			$string = preg_replace('/[^A-Za-z0-9]/', ' ', $string);
 			$name = preg_replace('/\s+/', ' ', str_replace('&', '', trim($string)));
@@ -135,7 +108,6 @@ class HomePageController extends Controller
 			if (!empty($keyword)) {
 				$lead->kw_id = $keyword->id;
 				$lead->kw_text = $keyword->keyword;
-
 			} else {
 				$lead->kw_id = 0;
 				$lead->kw_text = $request->input('kw_text');
@@ -147,81 +119,75 @@ class HomePageController extends Controller
 			$lead->remark = $request->input('remark');
 			$lead->created_by = 101;
 
-			$checklead = Lead::where('mobile',$newmobile)->where('kw_text', $request->input('kw_text'))->where('city_name',$cityname)->get()->count();
+			$checklead = Lead::where('mobile', $newmobile)->where('kw_text', $request->input('kw_text'))->where('city_name', $cityname)->get()->count();
 			if ($checklead > 0) {
-			$currentdate = date('Y-m-d');
-			$lastDate = date('',strtotime($currentdate.'- 4 day'));
-			$checkday = Lead::where('mobile',$newmobile)->where('kw_text', $request->input('kw_text'))->whereDate('created_at','>',date_format(date_create($lastDate),'Y-m-d'))->get()->count();
+				$currentdate = date('Y-m-d');
+				$lastDate = date('', strtotime($currentdate . '- 4 day'));
+				$checkday = Lead::where('mobile', $newmobile)->where('kw_text', $request->input('kw_text'))->whereDate('created_at', '>', date_format(date_create($lastDate), 'Y-m-d'))->get()->count();
 
-			if ($lead->save()) {
+				if ($lead->save()) {
 
-				$followUp = new LeadFollowUp;
-				$followUp->status = Status::where('name', 'LIKE', 'New Lead')->first()->id;
-				$followUp->remark = $request->input('remark');
-				//	$followUp->expected_date_time = date('Y-m-d H:i:s');
-				$followUp->lead_id = $lead->id;
-				//$followUp->remark_by =Auth::user()->id;
-				$followUp->save();
+					$followUp = new LeadFollowUp;
+					$followUp->status = Status::where('name', 'LIKE', 'New Lead')->first()->id;
+					$followUp->remark = $request->input('remark');
+					//	$followUp->expected_date_time = date('Y-m-d H:i:s');
+					$followUp->lead_id = $lead->id;
+					//$followUp->remark_by =Auth::user()->id;
+					$followUp->save();
 
-				leadassignWithoutZoneCounsellor($lead);
+					leadassignWithoutZoneCounsellor($lead);
 
-				return response()->json([
-					'statusCode' => 1,
-					'response' => [
-						'responseCode' => 200,
-						'payload' => '',
-						'message' => 'Follow Up created successfully'
-					]
-				], 200);
+					return response()->json([
+						'statusCode' => 1,
+						'response' => [
+							'responseCode' => 200,
+							'payload' => '',
+							'message' => 'Follow Up created successfully'
+						]
+					], 200);
+				} else {
+					return response()->json([
+						'statusCode' => 1,
+						'response' => [
+							'responseCode' => 200,
+							'payload' => '',
+							'message' => 'Some Error Follow up'
+						]
+					], 200);
+				}
 			} else {
-				return response()->json([
-					'statusCode' => 1,
-					'response' => [
-						'responseCode' => 200,
-						'payload' => '',
-						'message' => 'Some Error Follow up'
-					]
-				], 200);
-			}
+				if ($lead->save()) {
 
+					$followUp = new LeadFollowUp;
+					$followUp->status = Status::where('name', 'LIKE', 'New Lead')->first()->id;
+					$followUp->remark = $request->input('remark');
+					//	$followUp->expected_date_time = date('Y-m-d H:i:s');
+					$followUp->lead_id = $lead->id;
+					//$followUp->remark_by =Auth::user()->id;
+					$followUp->save();
 
-		}else{
-			if ($lead->save()) {
+					leadassignWithoutZoneCounsellor($lead);
 
-				$followUp = new LeadFollowUp;
-				$followUp->status = Status::where('name', 'LIKE', 'New Lead')->first()->id;
-				$followUp->remark = $request->input('remark');
-				//	$followUp->expected_date_time = date('Y-m-d H:i:s');
-				$followUp->lead_id = $lead->id;
-				//$followUp->remark_by =Auth::user()->id;
-				$followUp->save();
-
-				leadassignWithoutZoneCounsellor($lead);
-
-				return response()->json([
-					'statusCode' => 1,
-					'response' => [
-						'responseCode' => 200,
-						'payload' => '',
-						'message' => 'Follow Up created successfully'
-					]
-				], 200);
-			} else {
-				return response()->json([
-					'statusCode' => 1,
-					'response' => [
-						'responseCode' => 200,
-						'payload' => '',
-						'message' => 'Some Error Follow up'
-					]
-				], 200);
-
+					return response()->json([
+						'statusCode' => 1,
+						'response' => [
+							'responseCode' => 200,
+							'payload' => '',
+							'message' => 'Follow Up created successfully'
+						]
+					], 200);
+				} else {
+					return response()->json([
+						'statusCode' => 1,
+						'response' => [
+							'responseCode' => 200,
+							'payload' => '',
+							'message' => 'Some Error Follow up'
+						]
+					], 200);
+				}
 			}
 		}
-
-
-		}
-
 	}
 
 
@@ -276,7 +242,7 @@ class HomePageController extends Controller
 			$lead->mobile = $newmobile;
 			$kw_text = filter_var($request->input('kw_text'), FILTER_SANITIZE_STRING);
 			$kw_text = preg_replace('/[^A-Za-z0-9]/', ' ', $kw_text);
-			$kw_text = preg_replace('/\s+/', ' ', str_replace('&', '', trim($kw_text)));			 
+			$kw_text = preg_replace('/\s+/', ' ', str_replace('&', '', trim($kw_text)));
 			$keyword = Keyword::where('keyword', $kw_text)->first();
 
 			if (!empty($keyword)) {
@@ -298,12 +264,12 @@ class HomePageController extends Controller
 
 
 			$today = date('Y-m-d');
-			$checklead = Lead::where('mobile',$newmobile)->where('kw_text', $request->input('kw_text'))->where('city_name',$cityname)->whereDate('created_at','=',date_format(date_create($today),'Y-m-d'))->get()->count();
-		 
+			$checklead = Lead::where('mobile', $newmobile)->where('kw_text', $request->input('kw_text'))->where('city_name', $cityname)->whereDate('created_at', '=', date_format(date_create($today), 'Y-m-d'))->get()->count();
+
 			$currentdate = date('Y-m-d');
-			$lastDate = date('Y-m-d',strtotime($currentdate.'- 4 day'));
-			 
-			$checkday = Lead::where('mobile',$newmobile)->where('kw_text', $request->input('kw_text'))->whereDate('created_at','>',date_format(date_create($lastDate),'Y-m-d'))->get()->count();
+			$lastDate = date('Y-m-d', strtotime($currentdate . '- 4 day'));
+
+			$checkday = Lead::where('mobile', $newmobile)->where('kw_text', $request->input('kw_text'))->whereDate('created_at', '>', date_format(date_create($lastDate), 'Y-m-d'))->get()->count();
 
 			if (!empty($checklead) && $checklead > 0) {
 				return response()->json([
@@ -314,40 +280,39 @@ class HomePageController extends Controller
 						'message' => 'Follow Up created successfully'
 					]
 				], 200);
-				}else if(!empty($checkday) && $checkday > 0) {
+			} else if (!empty($checkday) && $checkday > 0) {
 				$lead->duplicate = '1';
 				if ($lead->save()) {
 
-				$followUp = new LeadFollowUp;
-				$followUp->status = Status::where('name', 'LIKE', 'New Lead')->first()->id;
-				$followUp->remark = $request->input('remark');
-				//	$followUp->expected_date_time = date('Y-m-d H:i:s');
-				$followUp->lead_id = $lead->id;
-				//$followUp->remark_by =Auth::user()->id;
-				$followUp->save();
+					$followUp = new LeadFollowUp;
+					$followUp->status = Status::where('name', 'LIKE', 'New Lead')->first()->id;
+					$followUp->remark = $request->input('remark');
+					//	$followUp->expected_date_time = date('Y-m-d H:i:s');
+					$followUp->lead_id = $lead->id;
+					//$followUp->remark_by =Auth::user()->id;
+					$followUp->save();
 
-				//leadassignWithoutZoneCounsellor($lead);
+					//leadassignWithoutZoneCounsellor($lead);
 
-				return response()->json([
-					'statusCode' => 1,
-					'response' => [
-						'responseCode' => 200,
-						'payload' => '',
-						'message' => 'Follow Up created successfully'
-					]
-				], 200);
+					return response()->json([
+						'statusCode' => 1,
+						'response' => [
+							'responseCode' => 200,
+							'payload' => '',
+							'message' => 'Follow Up created successfully'
+						]
+					], 200);
+				} else {
+					return response()->json([
+						'statusCode' => 1,
+						'response' => [
+							'responseCode' => 200,
+							'payload' => '',
+							'message' => 'Some Error Follow up'
+						]
+					], 200);
+				}
 			} else {
-				return response()->json([
-					'statusCode' => 1,
-					'response' => [
-						'responseCode' => 200,
-						'payload' => '',
-						'message' => 'Some Error Follow up'
-					]
-				], 200);
-
-			}
-			}else{
 
 				if ($lead->save()) {
 
@@ -385,7 +350,7 @@ class HomePageController extends Controller
 
 	public function saveEnquiryContact(Request $request)
 	{
-		 
+
 		if ($request->ajax()) {
 
 			$validator = Validator::make($request->all(), [
@@ -411,15 +376,15 @@ class HomePageController extends Controller
 			$lead->email = $request->input('email');
 			$lead->mobile = $request->input('mobile');
 			$lead->subject = filter_var($request->input('subject'), FILTER_SANITIZE_STRING);
-			  
+
 			$message = filter_var($request->input('message'), FILTER_SANITIZE_STRING);
 			$message = preg_replace('/[^A-Za-z0-9]/', ' ', $message);
-			$message = preg_replace('/\s+/', ' ', str_replace('&', '', trim($message)));			  
+			$message = preg_replace('/\s+/', ' ', str_replace('&', '', trim($message)));
 			$lead->message = $message;
-	 
+
 
 			if ($lead->save()) {
-				 
+
 				return response()->json([
 					'statusCode' => 1,
 					'response' => [
@@ -437,7 +402,6 @@ class HomePageController extends Controller
 						'message' => 'Some Error Follow up'
 					]
 				], 200);
-
 			}
 		}
 	}
@@ -489,13 +453,12 @@ class HomePageController extends Controller
 			$lead->mobile = $newmobile;
 			$kw_text = filter_var($request->input('kw_text'), FILTER_SANITIZE_STRING);
 			$kw_text = preg_replace('/[^A-Za-z0-9]/', ' ', $kw_text);
-			$kw_text = preg_replace('/\s+/', ' ', str_replace('&', '', trim($kw_text)));	
+			$kw_text = preg_replace('/\s+/', ' ', str_replace('&', '', trim($kw_text)));
 			$keyword = Keyword::where('keyword', $kw_text)->first();
 
 			if (!empty($keyword)) {
 				$lead->kw_id = $keyword->id;
 				$lead->kw_text = $keyword->keyword;
-
 			} else {
 				$lead->kw_id = 0;
 				$lead->kw_text = $request->input('kw_text');
@@ -510,12 +473,12 @@ class HomePageController extends Controller
 
 
 			$today = date('Y-m-d');
-			$checklead = Lead::where('mobile',$newmobile)->where('kw_text', $request->input('kw_text'))->where('city_name',$cityname)->whereDate('created_at','=',date_format(date_create($today),'Y-m-d'))->get()->count();
+			$checklead = Lead::where('mobile', $newmobile)->where('kw_text', $request->input('kw_text'))->where('city_name', $cityname)->whereDate('created_at', '=', date_format(date_create($today), 'Y-m-d'))->get()->count();
 			//echo "<pre>";print_r($checklead);die;
 			$currentdate = date('Y-m-d');
-			$lastDate = date('Y-m-d',strtotime($currentdate.'- 4 day'));
-			 
-			$checkday = Lead::where('mobile',$newmobile)->where('kw_text', $request->input('kw_text'))->whereDate('created_at','>',date_format(date_create($lastDate),'Y-m-d'))->get()->count();
+			$lastDate = date('Y-m-d', strtotime($currentdate . '- 4 day'));
+
+			$checkday = Lead::where('mobile', $newmobile)->where('kw_text', $request->input('kw_text'))->whereDate('created_at', '>', date_format(date_create($lastDate), 'Y-m-d'))->get()->count();
 
 			if (!empty($checklead) && $checklead > 0) {
 				return response()->json([
@@ -526,40 +489,39 @@ class HomePageController extends Controller
 						'message' => 'Follow Up created successfully'
 					]
 				], 200);
-				}else if(!empty($checkday) && $checkday > 0) {
-			$lead->duplicate = '1';
-			if ($lead->save()) {
+			} else if (!empty($checkday) && $checkday > 0) {
+				$lead->duplicate = '1';
+				if ($lead->save()) {
 
-				$followUp = new LeadFollowUp;
-				$followUp->status = Status::where('name', 'LIKE', 'New Lead')->first()->id;
-				$followUp->remark = $request->input('remark');
-				//	$followUp->expected_date_time = date('Y-m-d H:i:s');
-				$followUp->lead_id = $lead->id;
-				//$followUp->remark_by =Auth::user()->id;
-				$followUp->save();
+					$followUp = new LeadFollowUp;
+					$followUp->status = Status::where('name', 'LIKE', 'New Lead')->first()->id;
+					$followUp->remark = $request->input('remark');
+					//	$followUp->expected_date_time = date('Y-m-d H:i:s');
+					$followUp->lead_id = $lead->id;
+					//$followUp->remark_by =Auth::user()->id;
+					$followUp->save();
 
-				//leadassignWithoutZoneCounsellor($lead);
+					//leadassignWithoutZoneCounsellor($lead);
 
-				return response()->json([
-					'statusCode' => 1,
-					'response' => [
-						'responseCode' => 200,
-						'payload' => '',
-						'message' => 'Follow Up created successfully'
-					]
-				], 200);
+					return response()->json([
+						'statusCode' => 1,
+						'response' => [
+							'responseCode' => 200,
+							'payload' => '',
+							'message' => 'Follow Up created successfully'
+						]
+					], 200);
+				} else {
+					return response()->json([
+						'statusCode' => 1,
+						'response' => [
+							'responseCode' => 200,
+							'payload' => '',
+							'message' => 'Some Error Follow up'
+						]
+					], 200);
+				}
 			} else {
-				return response()->json([
-					'statusCode' => 1,
-					'response' => [
-						'responseCode' => 200,
-						'payload' => '',
-						'message' => 'Some Error Follow up'
-					]
-				], 200);
-
-			}
-			}else{
 
 				if ($lead->save()) {
 
@@ -602,94 +564,91 @@ class HomePageController extends Controller
 	 * @return \Illuminate\Http\Response
 	 */
 	public function autoFormSave(Request $request)
-	{ 	 
-			$cityname = ucwords(str_replace("-", " ", $request->input('city_id')));
-			$city = Citieslists::where('city', 'LIKE', ucwords(str_replace("-", " ", $request->input('city_id'))))->first();
-			$lead = new Lead;
-			if (!empty($city->id)) {
-				$lead->city_id = $city->id;
-				$lead->city_name = $city->city;
+	{
+		$cityname = ucwords(str_replace("-", " ", $request->input('city_id')));
+		$city = Citieslists::where('city', 'LIKE', ucwords(str_replace("-", " ", $request->input('city_id'))))->first();
+		$lead = new Lead;
+		if (!empty($city->id)) {
+			$lead->city_id = $city->id;
+			$lead->city_name = $city->city;
+		} else {
+			if ($cityname) {
+				$lead->city_name = $cityname;
 			} else {
-				if ($cityname) {
-					$lead->city_name = $cityname;
-				} else {
-					$lead->city_name = 'none';
-				}
+				$lead->city_name = 'none';
 			}
-			$string = filter_var($request->input('name'), FILTER_SANITIZE_STRING);
-			$string = preg_replace('/[^A-Za-z0-9]/', ' ', $string);
-			$name = preg_replace('/\s+/', ' ', str_replace('&', '', trim($string)));
-			$lead->name = $name;
-			 
-			if ($request->input('email') != '') {
+		}
+		$string = filter_var($request->input('name'), FILTER_SANITIZE_STRING);
+		$string = preg_replace('/[^A-Za-z0-9]/', ' ', $string);
+		$name = preg_replace('/\s+/', ' ', str_replace('&', '', trim($string)));
+		$lead->name = $name;
 
-				$lead->email = $request->input('email');
-			}
-			$mobile = ltrim($request->input('mobile'), '0');
-			$mobile = trim($mobile);
-			$newmobile = preg_replace('/\s+/', '', $mobile);
-			$lead->mobile = $newmobile;
-			$lead->lead_form = $request->input('lead_form');
-			$lead->from_page = filter_var($request->input('from_page'), FILTER_SANITIZE_STRING);
-			$keyword = Keyword::where('keyword', 'LIKE', $request->input('kw_text'))->get();
-			if (!empty($keyword)) {
-				$lead->kw_id = $keyword[0]->id;
-				$lead->kw_text = $keyword[0]->keyword;
-				$bucketIndex = $keyword[0]->bucket;
-			} else {
-				return response()->json(['status' => 1, 'msg' => 'Keyword not found'], 404);
-			}
-			if ($request->has('b_end')) {
-				$lead->b_end = $request->input('b_end');
-			}
-			$lead->status_id = Status::where('name', 'LIKE', 'New Lead')->first()->id;
-			$lead->status_name = Status::where('name', 'LIKE', 'New Lead')->first()->name;
-			$lead->remark = $request->input('remark');
-			$lead->created_by = '1';
+		if ($request->input('email') != '') {
 
-			$today = date('Y-m-d');
-			$checklead = Lead::where('mobile',$newmobile)->where('kw_text', $request->input('kw_text'))->where('city_name',$cityname)->whereDate('created_at','=',date_format(date_create($today),'Y-m-d'))->get()->count();
-			
-			$currentdate = date('Y-m-d');
-			$lastDate = date('Y-m-d',strtotime($currentdate.'- 4 day'));
-			 
-			$checkday = Lead::where('mobile',$newmobile)->where('kw_text', $request->input('kw_text'))->whereDate('created_at','>',date_format(date_create($lastDate),'Y-m-d'))->get()->count();
+			$lead->email = $request->input('email');
+		}
+		$mobile = ltrim($request->input('mobile'), '0');
+		$mobile = trim($mobile);
+		$newmobile = preg_replace('/\s+/', '', $mobile);
+		$lead->mobile = $newmobile;
+		$lead->lead_form = $request->input('lead_form');
+		$lead->from_page = filter_var($request->input('from_page'), FILTER_SANITIZE_STRING);
+		$keyword = Keyword::where('keyword', 'LIKE', $request->input('kw_text'))->get();
+		if (!empty($keyword)) {
+			$lead->kw_id = $keyword[0]->id;
+			$lead->kw_text = $keyword[0]->keyword;
+			$bucketIndex = $keyword[0]->bucket;
+		} else {
+			return response()->json(['status' => 1, 'msg' => 'Keyword not found'], 404);
+		}
+		if ($request->has('b_end')) {
+			$lead->b_end = $request->input('b_end');
+		}
+		$lead->status_id = Status::where('name', 'LIKE', 'New Lead')->first()->id;
+		$lead->status_name = Status::where('name', 'LIKE', 'New Lead')->first()->name;
+		$lead->remark = $request->input('remark');
+		$lead->created_by = '1';
 
-			if (!empty($checklead) && $checklead > 0) {
-				return response()->json(['status' => 1, 'msg' => 'Lead added successfully'], 200);
-				}else if(!empty($checkday) && $checkday > 0) {
+		$today = date('Y-m-d');
+		$checklead = Lead::where('mobile', $newmobile)->where('kw_text', $request->input('kw_text'))->where('city_name', $cityname)->whereDate('created_at', '=', date_format(date_create($today), 'Y-m-d'))->get()->count();
+
+		$currentdate = date('Y-m-d');
+		$lastDate = date('Y-m-d', strtotime($currentdate . '- 4 day'));
+
+		$checkday = Lead::where('mobile', $newmobile)->where('kw_text', $request->input('kw_text'))->whereDate('created_at', '>', date_format(date_create($lastDate), 'Y-m-d'))->get()->count();
+
+		if (!empty($checklead) && $checklead > 0) {
+			return response()->json(['status' => 1, 'msg' => 'Lead added successfully'], 200);
+		} else if (!empty($checkday) && $checkday > 0) {
 			$lead->duplicate = '1';
 			if ($lead->save()) {
 
 				$followUp = new LeadFollowUp;
 				$followUp->status = Status::where('name', 'LIKE', 'New Lead')->first()->id;
 				$followUp->remark = $request->input('remark');
-				 
+
 				$followUp->lead_id = $lead->id;
-			 
+
 				$followUp->save();
-			 
+
 				return response()->json(['status' => 1, 'msg' => 'Lead added successfully'], 200);
-			} 
-			}else{
-
-				if ($lead->save()) {
-
-					$followUp = new LeadFollowUp;
-					$followUp->status = Status::where('name', 'LIKE', 'New Lead')->first()->id;
-					$followUp->remark = $request->input('remark');
-					//	$followUp->expected_date_time = date('Y-m-d H:i:s');
-					$followUp->lead_id = $lead->id;
-					//$followUp->remark_by =Auth::user()->id;
-					$followUp->save();
-
-					leadassignWithoutZoneCounsellor($lead);
-					return response()->json(['status' => 1, 'msg' => 'Lead added successfully'], 200);
-				} 
 			}
-			 
+		} else {
 
-		
+			if ($lead->save()) {
+
+				$followUp = new LeadFollowUp;
+				$followUp->status = Status::where('name', 'LIKE', 'New Lead')->first()->id;
+				$followUp->remark = $request->input('remark');
+				//	$followUp->expected_date_time = date('Y-m-d H:i:s');
+				$followUp->lead_id = $lead->id;
+				//$followUp->remark_by =Auth::user()->id;
+				$followUp->save();
+
+				leadassignWithoutZoneCounsellor($lead);
+				return response()->json(['status' => 1, 'msg' => 'Lead added successfully'], 200);
+			}
+		}
 	}
 	/**
 	 * Store a newly created resource in storage.
@@ -750,7 +709,6 @@ class HomePageController extends Controller
 				leadassignWithoutZoneCounsellor($lead);
 				return response()->json(['status' => 1, 'msg' => 'Lead added successfully'], 200);
 			}
-
 		}
 	}
 
@@ -763,7 +721,7 @@ class HomePageController extends Controller
 	 * @return \Illuminate\Http\Response
 	 */
 	public function searchUser(Request $request)
-	{		 
+	{
 		header("Access-Control-Allow-Origin: *");
 		header('Access-Control-Allow-Credentials: true');
 		if ($request->wantsJson()) {
@@ -825,7 +783,6 @@ class HomePageController extends Controller
 			$query = $query->orderBy(DB::raw("CASE WHEN keyword.keyword LIKE '" . $str . "%' THEN 1 ELSE 2 END"));
 
 			$query = $query->distinct()->get();
-
 		}
 		$html = "";
 		foreach ($query as $q) {
@@ -862,7 +819,6 @@ class HomePageController extends Controller
 			$len = strlen($request->input('id'));
 			if (null == $request->input('id')) {
 				$countryies = Citieslists::whereIn('id', ['278', '596', '961', '428'])->get();
-
 			} else {
 				$countryies = DB::table('citylists');
 				$countryies = $countryies->where(function ($query) use ($request) {
@@ -887,10 +843,8 @@ class HomePageController extends Controller
 
 						$html .= '<li><a data-city="' . strtolower($data->city) . '">' . ucwords($data->city) . '</a>
 						</li>';
-
 					}
 				}
-
 			}
 
 			$zones = DB::table('zones');
@@ -914,10 +868,8 @@ class HomePageController extends Controller
 					} else {
 
 						$html .= '<li><a data-city="' . strtolower($zone->city) . '">' . ucwords($zone->zone) . ', ' . ucwords($zone->city) . '></a></li>';
-
 					}
 				}
-
 			}
 
 
@@ -1036,7 +988,7 @@ class HomePageController extends Controller
 			->groupBy('client_id')
 			//->orderby(DB::raw('(CASE `clients`.`certified_status` WHEN \'1\' THEN 1 END)'),'DESC')		
 			->get();
-	 
+
 		return view('client.courseprogram_client', ['cateoryClient' => $cateoryClient, 'subcategory' => $subcategory, 'part_id' => $part_id, 'city' => $city]);
 	}
 	/**
@@ -1143,7 +1095,6 @@ class HomePageController extends Controller
 
 				$cityclients = $checkcity;
 				return view('client.cityclients', ['cityclients' => $cityclients]);
-
 			} else {
 
 				$clientskeyword = DB::table('clients')
@@ -1209,8 +1160,6 @@ class HomePageController extends Controller
 						->get();
 
 					return view('client.parentKeyword', ['clientskeyword' => $clientskeyword, 'keyword' => $parentCategories, 'reviewsClientsList' => $reviewsClientsList, 'clientLists' => $clientLists, 'city' => $city, 'keywordlist' => $keywordlist]);
-
-
 				} else {
 					$childCategories = DB::table('keyword')
 						->join('parent_category', 'keyword.parent_category_id', '=', 'parent_category.id')
@@ -1239,7 +1188,6 @@ class HomePageController extends Controller
 							->get();
 
 						return view('client.childKeyword', ['clientskeyword' => $clientskeyword, 'keyword' => $childCategories, 'reviewsClientsList' => $reviewsClientsList, 'city' => $city, 'keywordlist' => $keywordlist]);
-
 					} else {
 
 						$keyword = DB::table('keyword')
@@ -1249,8 +1197,6 @@ class HomePageController extends Controller
 							->where('keyword', 'LIKE', ucwords(str_replace("-", " ", $city)))->first();
 						if (!empty($keyword)) {
 							$keyword = $keyword;
-
-
 						} else {
 							$keyword = DB::table('keyword')
 								->join('child_category', 'keyword.child_category_id', '=', 'child_category.id')
@@ -1345,7 +1291,6 @@ class HomePageController extends Controller
 
 									if (!empty($clients) && count($clients) > 0) {
 										return view('client.client-detail', ['client' => $client, 'cities' => $cities, 'comments' => $comments, 'count' => $count, 'sum' => $sum, 'avgRating' => number_format($avgRating, 1, '.', ''), 'graphQuery' => $graphQuery, 'barGraphQuery' => $barGraphQuery, 'assignedKwds' => $assignedKwds, 'clientLists' => $clientLists, 'clients' => $clients, 'assignedCity' => $assignedCity]);
-
 									} else {
 
 										$parentCategories = ParentCategory::get();
@@ -1358,21 +1303,15 @@ class HomePageController extends Controller
 										return view('client.businessServices', ['businessServices' => $businessServices, 'parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
 									}
 								}
-
 							}
-
 						}
-
 					}
-
 				}
-
 			}
 			return view('client.searchkeyword', ['clientskeyword' => $clientskeyword, 'keyword' => $keyword, 'reviewsClientsList' => $reviewsClientsList, 'clientLists' => $clientLists, 'city' => $city]);
 		} catch (\Exception $e) {
 			return view('client.errorpage');
 		}
-
 	}
 
 
@@ -1439,7 +1378,7 @@ class HomePageController extends Controller
 		$businessServices = DB::table('parent_category')
 			->join('child_category', 'child_category.parent_category_id', '=', 'parent_category.id')
 			->select('parent_category.*', 'child_category.*')
-			->where('parent_category.parent_slug', $slug)			 
+			->where('parent_category.parent_slug', $slug)
 			->groupBy('child_slug')
 			->get();
 
@@ -1452,31 +1391,29 @@ class HomePageController extends Controller
 				->select('keyword.*', 'keyword.faqq1', 'keyword.faqa1', 'keyword.faqq2', 'keyword.faqa2', 'keyword.faqq3', 'keyword.faqa3', 'keyword.faqq4', 'keyword.faqa4', 'keyword.faqq5', 'keyword.faqa5', 'keyword.meta_title', 'keyword.meta_description', 'keyword.meta_keywords', 'keyword.top_description', 'keyword.bottom_description', 'keyword.ratingvalue', 'keyword.ratingcount')
 
 				->where('keyword.parent_category_id', $part_id->id)->get();
-		
 
-		$clientsList = DB::table('clients')
-			->join('assigned_kwds', 'clients.id', '=', 'assigned_kwds.client_id')
-			->join('keyword', 'assigned_kwds.kw_id', '=', 'keyword.id')
-			->join('citylists', 'assigned_kwds.city_id', '=', 'citylists.id')
-			->leftJoin(DB::raw('(SELECT SUM(rating) AS rating,comment_client_ID,COUNT(comment_ID) AS comment_count FROM comments GROUP BY comment_client_ID) c'), 'c.comment_client_ID', '=', 'clients.id')
-			->select('clients.*', 'citylists.city', 'assigned_kwds.sold_on_position', 'c.rating', 'c.comment_count')
-			//	->where('citylists.city','LIKE',"noida")
-			//->where('clients.active_status','1')
-			->where('assigned_kwds.parent_cat_id', '=', $part_id->id)
-			//->where('assigned_kwds.sold_on_position','!=','king')
-			->orderby(DB::raw('(CASE `assigned_kwds`.`sold_on_position` WHEN \'platinum\' THEN 1 WHEN \'diamond\' THEN 2 WHEN \'FreeListing\' THEN 3 END)'), 'asc')
-			//	->orderby(DB::raw('(CASE `assigned_kwds`.`sold_on_position` WHEN \'platinum\' THEN 1 WHEN \'diamond\' THEN 2 END)'),'asc')
-			//->orderby(DB::raw('(CASE `assigned_kwds`.`sold_on_position` WHEN \'premium\' THEN 1 WHEN \'platinum\' THEN 2 WHEN \'royal\' THEN 3 WHEN \'preferred\' THEN 4 END)'),'asc')
-			->groupBy('client_id')
-			//->orderby(DB::raw('(CASE `clients`.`certified_status` WHEN \'1\' THEN 1 END)'),'DESC')		
-			->get();
+
+			$clientsList = DB::table('clients')
+				->join('assigned_kwds', 'clients.id', '=', 'assigned_kwds.client_id')
+				->join('keyword', 'assigned_kwds.kw_id', '=', 'keyword.id')
+				->join('citylists', 'assigned_kwds.city_id', '=', 'citylists.id')
+				->leftJoin(DB::raw('(SELECT SUM(rating) AS rating,comment_client_ID,COUNT(comment_ID) AS comment_count FROM comments GROUP BY comment_client_ID) c'), 'c.comment_client_ID', '=', 'clients.id')
+				->select('clients.*', 'citylists.city', 'assigned_kwds.sold_on_position', 'c.rating', 'c.comment_count')
+				//	->where('citylists.city','LIKE',"noida")
+				//->where('clients.active_status','1')
+				->where('assigned_kwds.parent_cat_id', '=', $part_id->id)
+				//->where('assigned_kwds.sold_on_position','!=','king')
+				->orderby(DB::raw('(CASE `assigned_kwds`.`sold_on_position` WHEN \'platinum\' THEN 1 WHEN \'diamond\' THEN 2 WHEN \'FreeListing\' THEN 3 END)'), 'asc')
+				//	->orderby(DB::raw('(CASE `assigned_kwds`.`sold_on_position` WHEN \'platinum\' THEN 1 WHEN \'diamond\' THEN 2 END)'),'asc')
+				//->orderby(DB::raw('(CASE `assigned_kwds`.`sold_on_position` WHEN \'premium\' THEN 1 WHEN \'platinum\' THEN 2 WHEN \'royal\' THEN 3 WHEN \'preferred\' THEN 4 END)'),'asc')
+				->groupBy('client_id')
+				//->orderby(DB::raw('(CASE `clients`.`certified_status` WHEN \'1\' THEN 1 END)'),'DESC')		
+				->get();
 			return view('client.category', ['businessServices' => $businessServices, 'parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'part_id' => $part_id, 'clientsList' => $clientsList]);
-		}else{
+		} else {
 
 			return view('client.errorpage');
-
 		}
-		
 	}
 
 
@@ -1484,20 +1421,19 @@ class HomePageController extends Controller
 	public function child(Request $request, $child_slug)
 	{
 		$child_id = ChildCategory::where('child_slug', $child_slug)->first();
-		
-		
-		if(!empty($child_id)){
+
+
+		if (!empty($child_id)) {
 			$childCategory = DB::table('child_category')
-			->join('keyword', 'keyword.child_category_id', '=', 'child_category.id')
-			->select('child_category.*', 'keyword.*')
-			->where('child_slug', $child_slug)
-			->groupBy('keyword')
-			->get();
+				->join('keyword', 'keyword.child_category_id', '=', 'child_category.id')
+				->select('child_category.*', 'keyword.*')
+				->where('child_slug', $child_slug)
+				->groupBy('keyword')
+				->get();
 			$part_id = DB::table('parent_category')->where('id', operator: $child_id->parent_category_id)->first();
-		return view('client.child', ['childCategory' => $childCategory, 'part_id' => $part_id,'child_id'=>$child_id]);
-		}else{
+			return view('client.child', ['childCategory' => $childCategory, 'part_id' => $part_id, 'child_id' => $child_id]);
+		} else {
 			return view('client.errorpage');
 		}
 	}
-
 }
