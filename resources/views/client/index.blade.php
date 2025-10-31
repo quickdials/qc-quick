@@ -12,28 +12,29 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
 <!-- Hero-homepage Section -->
 <section class="hero-homepage">
   <div class="overlay">
-    <h1>Find and provide<br>services with ease.</h1>
-    <p>Connecting individuals, households, and organizations with experienced<br>and verified service providers.</p>
+    <h1>Find and provide services with ease.</h1>
+    <p>Connecting individuals, households, and organizations with experienced and verified service providers.</p>
     <div class="search-bar-homepage">
       <div class="input-box-homepage" style="border-right:1px solid #fdded6;">
         <img src="{{ asset('client/img/homepageicons (2).svg') }}" alt="">
         <form action="/searchlist" method="GET" class="search-form" autocomplete="off">
           <input type="text" placeholder="Location">
       </div>
-      <div class="input-box-homepage">
-        <input type="text" placeholder="Select service Categories">
-      </div>
+      <div class="input-box-homepage" style="border-bottom:none">
+        <input type="text" placeholder="Select service">
       <button class="search-btn-homepage">
         <img src="{{ asset('client/img/homepageicons (1).svg') }}" alt="" width="40px" height="30px">
       </button>
+            </div>
+
       </form>
-      <script>
+      <!-- <script>
         const clearBtn = document.getElementById('clearBtn');
         const searchInput = document.getElementById('searchInput');
         clearBtn.addEventListener('click', () => {
           searchInput.value = '';
         });
-      </script>
+      </script> -->
     </div>
   </div>
   <div class="companydetailsbanner-homepage">
@@ -45,11 +46,11 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
   </div>
 </section>
 
-<section class="categories-section-country">
+<section class="categories-section-country  ">
   <div class="categories-section-title">
-    <h2 class="categories-title">Explore Some Of Our Categories</h2>
+    <h2 class="categories-title  ">Explore Some Of Our Categories</h2>
   </div>
-  <div class="categories-grid-country">
+  <div class="categories-grid-country animation-sectionss">
     <a href="{{ url('categories/professional-courses') }}" class="category-item-country">
       <div class="category-icon">
         <img src="{{ asset('img/IT-Training.png') }}" alt="IT Courses">
@@ -178,7 +179,7 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
       <p class="categories-desc">Lorem ipsum dolor sit amet Sed at viverra eu.</p>
     </div>
 
-    <div class="row popular-list">
+    <div class="row popular-list animation-sectionss">
 
       <!-- Category Item Start -->
       <div class="col-md-2 col-sm-4 col-xs-6">
@@ -258,7 +259,7 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
       </p>
     </div>
 
-    <div class="row popular-list">
+    <div class="row popular-list animation-sectionss">
       <!-- AC Service -->
       <div class="col-md-2 col-sm-4 col-xs-6">
         <div class="popular-div">
@@ -335,7 +336,7 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
       </p>
     </div>
 
-    <div class="row popular-list">
+    <div class="row popular-list animation-sectionss">
 
       <div class="col-md-2 col-sm-4 col-xs-6">
         <div class="popular-div">
@@ -412,7 +413,7 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
       </p>
     </div>
 
-    <div class="row popular-list">
+    <div class="row popular-list animation-sectionss">
 
       <div class="col-md-2 col-sm-4 col-xs-6">
         <div class="popular-div">
@@ -479,7 +480,7 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
     </div>
   </div>
   <!-- Categories Section -->
-  <section class="categories-section-country" style="background-color: white;">
+  <section class="categories-section-country animation-sectionss" style="background-color: white;">
     <div class="categories-section-title">
       <h2 class="categories-title">Study Abroad</h2>
     </div>
@@ -521,8 +522,8 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
 @endif
 </section>
 
-<div class="stats-section">
-  <div class="stats-grid">
+<div class="stats-section ">
+  <div class="stats-grid animation-sectionss">
     <div class="stat-item">
       <div class="stat-number">2023</div>
       <div class="stat-label">Since 2023<br>Founded</div>
@@ -549,7 +550,7 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
     </div>
   </div>
 </div>
-<div class="container-main">
+<div class="container-main animation-sectionss">
   <div class="container">
     <div class="main-content-home-page">
       <div class="hero-image">
@@ -557,7 +558,7 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
       </div>
       <div class="cta-section">
         <div class="cta-content">
-          <h2 class="cta-title">Do you have any Requirement in your mind?</h2>
+          <h2 class="cta-title animation-sectionss">Do you have any Requirement in your mind?</h2>
           <div class="cta-buttons">
             <a href="#" class="btn btn-secondary">Get Started</a>
             <a href="#" class="btn btn-primary">Get Quote</a>
@@ -569,7 +570,7 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
 </div>
 
 <!-- Blog Section -->
-<div class="home-blog-section">
+<div class="home-blog-section animation-sectionss">
   <h2 class="home-blog-title "><b>Blog Post</b></h2>
   @if(!empty($blogdetails) && count($blogdetails) > 0)
   <div class="home-blog-grid">
@@ -584,7 +585,7 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
     $desc = strip_tags($blog->description ?? '');
     $descShort = strlen($desc) > 120 ? substr($desc, 0, 120) . '...' : $desc;
     @endphp
-    <div class="home-blog-card">
+    <div class="home-blog-card animation-sectionss">
       <img src="{{ $image }}" class="blog-image" alt="{{ $title }}">
       <div class="home-blog-content">
         <h3 class="home-blog-card-title">

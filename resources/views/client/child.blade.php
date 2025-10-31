@@ -11,7 +11,7 @@ Quick Dials- Business Services POPULAR CATEGORIES, B2B & BUSINESS SERVICES
 @section('content')
 
 <div class="main-image-section-subcategories">
-  <img src="{{ asset('client/images/childsubcategory.png') }}" alt="Professional Courses">
+  <img src="{{ asset('client/images/entrance-exams-coaching.jpg') }}" alt="Professional Courses">
 </div>
 <section class="hero">
   <div class="container-childsubcategories">
@@ -81,9 +81,9 @@ Quick Dials- Business Services POPULAR CATEGORIES, B2B & BUSINESS SERVICES
 
 <!-- Courses -->
 <section class="courses-section">
-  <div class="container-childsubcategories">
+  <div class="container-childsubcategories " >
     <h2 class="section-title-subcatgories">Explore Professional Courses Categories</h2>
-    <div class="courses-grid-categories">
+    <div class="courses-grid-categories animation-sectionss">
       @if(!empty($childCategory))
       @foreach($childCategory as $child)
       <div class="course-card-subcategories">
@@ -107,7 +107,7 @@ Quick Dials- Business Services POPULAR CATEGORIES, B2B & BUSINESS SERVICES
     </div>
 </section>
 
-<div class="container-main">
+<div class="container-main animation-sectionss" style="padding:8px">
   <div class="container">
     <!-- Main Content -->
     <div class="main-content-home-page">
@@ -116,7 +116,7 @@ Quick Dials- Business Services POPULAR CATEGORIES, B2B & BUSINESS SERVICES
       </div>
       <div class="cta-section">
         <div class="cta-content">
-          <h2 class="cta-title">Do you have any Requirement in your mind?</h2>
+          <h2 class="cta-title animation-sectionss">Do you have any Requirement in your mind?</h2>
           <div class="cta-buttons">
             <a href="#" class="btn btn-secondary">Get Started</a>
             <a href="#" class="btn btn-primary">Get Quote</a>

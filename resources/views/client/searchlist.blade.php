@@ -96,7 +96,7 @@
 								@endfor
 
 								@if($halfStar)
-								<span class="yellow-star">⯨</span> {{-- optional half star --}}
+								<span class="yellow-star">★</span> {{-- optional half star --}}
 								@endif
 
 								@for($i = 0; $i < $emptyStars; $i++)
@@ -180,7 +180,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-9 col-md-9 reviews-box-main mainContainer">
+			<div class="col-sm-9 col-md-9 reviews-box-main mainContainer animation-sectionss">
 				@if(!empty($clientsList))
 				<?php $n = 0; ?>
 				@foreach($clientsList as $client)
@@ -317,7 +317,7 @@
 		</div>
 	</div>
 
-	<div class="wrapper-avi-883">
+	<div class="wrapper-avi-883 animation-sectionss">
 		<div class="img-box-avi-883">
 			<img src="{{ asset('client/images/companysectionimages.png') }}" alt="Aviation Management" />
 		</div>
@@ -369,16 +369,16 @@
 	@if(!empty($keyword))
 	<?php $kwdsList = App\Models\Keyword::where('child_category_id', $keyword->child_category_id)->where('parent_category_id', $keyword->parent_category_id)->select('keyword', 'icon')->distinct()->get(); ?>
 	@if(!empty($kwdsList))
-	<div class="container">
-		<div class="category-box">
-			<div class="course-program">
+	<div class="courses-section-subcategories">
+		<div class="container-subcategories">
+			<div class="">
 				<h5>Find Services Related to <?php if (!empty($keyword->keyword)) echo $keyword->keyword; ?> </h5>
-				<ul class="row">
+				<ul class="courses-grid-subcategories animation-sectionss">
 					@if(!empty($kwdsList))
 					<?php $i = 0;
 					$x = 5; ?>
 					@foreach($kwdsList as $keyicon)
-					<li class="col-sm-3 col-md-3">
+					<li class="course-card-subcategories" style="text-align:center">
 						<?php if (!empty($keyicon->icon)) {
 							$data = json_decode($keyicon->icon, true);
 							if (!empty($data)) {
@@ -582,7 +582,7 @@
 				{{ $keyword->keyword }}
 				@endif in Other Locations
 			</h2>
-			<div class="courses-grid-subcategories">
+			<div class="courses-grid-subcategories animation-sectionss">
 				@php $cities = getCity(); @endphp
 				@if(!empty($cities))
 				@foreach($cities as $citys)

@@ -512,7 +512,7 @@
 
 
     <footer>
-        <div class="footer-container ">
+        <div class="footer-container  animation-sectionss">
             <div class="footer-sections">
                 <div class="footer-col">
                     <h4>Popular Categories</h4>
@@ -790,6 +790,7 @@
     <script type="text/javascript" src="<?php echo asset('client/js/plugin.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('client/js/script.js'); ?>"></script>
     <script src="<?php echo asset('client/js/owl.carousel.js'); ?>"></script>
+    <script src="{{ asset('client/js/main.js') }}"></script>
     <script>
         jQuery(document).ready(function() {
             jQuery('.owl-carousel').owlCarousel({

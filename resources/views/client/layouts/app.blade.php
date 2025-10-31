@@ -144,38 +144,58 @@
             style="display:none;visibility:hidden"></iframe></noscript>-->
     <!-- End Google Tag Manager(noscript)-->
 
- <header>
-   
-    <div class="header-container">
-      <!-- Logo -->
-      <div class="logo">
-       <a href="{{url('/')}}"><img src="<?php echo asset('client/images/small-logo.png'); ?>"
-                                alt="Quick Dials" class="img-logo" /></a>
-      </div>
+ <header class="main-header">
+  <header class="second-header">
+            <div class="second-header-container">
+                <div class="second-logo">
+                    <a href="{{url('/')}}">
+                        <img src="<?php echo asset('client/images/small-logo.png'); ?>" alt="Logo">
+                    </a>
+                </div>
+                <div class="second-search-wrapper" id="wapper-showhide-dynamic">
+                    <div class="second-location-input">
+                        <img src="{{ asset('client/img/Icon.svg') }}" alt="" height="24px" width="24px">
+                        <select>
+                            <option value="">Location</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="bangalore">Bangalore</option>
+                        </select>
+                    </div>
+                    <input type="text" placeholder="Search..." class="second-search-box">
+                </div>
+                <div class="second-nav-links">
+                    <a href="{{url('/')}}">Home</a>
+                    <a href="{{url('/about-us')}}">About Us</a>
+                    <a href="{{url('/business-owners')}}">Business Free Listing</a>
+                    <a href="{{ url('business-owners') }}" style="color:white"><button class="second-login-btn" style="color:white">Login/<a href="{{ url('business-owners') }}"  style="color:white">Signup</a></button></a>
+                </div>
 
-      <!-- Desktop Nav + Login -->
-      <div class="nav-links">
-       <a href="{{url('/')}}">Home</a>
-       <a href="{{url('/about-us')}}">About Us</a>
-       <a href="{{url('/business-owners')}}">Business Free Listing</a>
-        <a href="{{ url('business-owners') }}"> <button  class="login-btn"> Login/Signup </button> </a>
-      </div>
- 
-      <!-- Hamburger -->
-      <button class="hamburger" id="menu-btn">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
+                <button class="second-hamburger" id="second-menu-btn" style="color: black;">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </header>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
-      <a href="/">Home</a>
-      <a href="{{url('/about-us')}}">About Us</a>
-     <a href="{{url('/business-owners')}}">Business Free Listing</a>
-      <button class="mobile-login-btn">Login/Signup</button>
+    <div class="second-mobile-sidebar " id="second-mobile-sidebar">
+        <div class="second-mobile-location-input">
+                <i class="fas fa-location-dot icon"></i>
+                <select>
+                    <option value="">Location</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="bangalore">Bangalore</option>
+                </select>
+            </div>
+            <input type="text" placeholder="Search..." class="second-mobile-search-box">
+  <a href="/">Home</a>
+  <a href="{{url('/about-us')}}">About Us</a>
+  <a href="{{url('/business-owners')}}">Business Free Listing</a>
+
+     <button class="second-mobile-login-btn">Login/Signup</button>
     </div>
   </header>
     {{-- <header id="header">
@@ -455,7 +475,7 @@
 
    
  <footer>
-    <div class="footer-container ">
+    <div class="footer-container   animation-sectionss">
     <div class="footer-sections">
       <div class="footer-col">
         <h4>Popular Categories</h4>
@@ -772,6 +792,24 @@
             e.stopPropagation()
         })
     </script>
+<script>
+  $(document).ready(function () {
+    if ($(window).width() > 768) {
+      $("#wapper-showhide-dynamic").hide();
+      let lastScrollTop = 0;
+      $(window).on("scroll", function () {
+        let scrollTop = $(this).scrollTop();
+        if (scrollTop > lastScrollTop) {
+          $("#wapper-showhide-dynamic").fadeIn();
+        } else {
+          $("#wapper-showhide-dynamic").fadeOut();
+        }
+        lastScrollTop = scrollTop;
+      });
+    }
+  });
+</script>
+
     <script>
         function tick1() {
             $('#ticker_01 li:first').slideUp(function () {

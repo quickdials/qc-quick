@@ -26,7 +26,7 @@ Quick Dials- Training in {{$client->business_name}}
     <div class="container">
 
     <div class="clearfix"></div>
-    <div class="profile-container-companydetails-page">
+    <div class="profile-container-companydetails-page  animation-sectionss">
         <div class="profile-card-company">
             @php
             $image = '#';
@@ -142,7 +142,7 @@ Quick Dials- Training in {{$client->business_name}}
             border-radius: 4px;
         }
     </style>
-    <div class="complaint-details-banners">
+    <div class="complaint-details-banners animation-sectionss">
         <h1>Serving in City/Cities</h1>
         <div class="complaint-details-icons">
             @if(!empty($assignedCity))
@@ -159,7 +159,7 @@ Quick Dials- Training in {{$client->business_name}}
             @endif
         </div>
     </div>
-    <div class="pre-wedding-company-detials">
+    <div class="pre-wedding-company-detials animation-sectionss">
         <div class="content-pre-wedding-company-detials">
             <div class="categories-wrapper-pre-wedding-company-details" style="border: none">
                 <div class="categories-grid-pre-wedding-company-details">
@@ -185,7 +185,7 @@ Quick Dials- Training in {{$client->business_name}}
     </div>
 
 <!-- Dynamic Enquiry Form -->
-<div class="form-pre-wedding">
+<div class="form-pre-wedding     animation-sectionss">
   <form
     class="formaling lead_form"
     action=""
@@ -253,7 +253,7 @@ Quick Dials- Training in {{$client->business_name}}
 
 </div>
 @if(count($comments) > 0)
-<div class="container-company-details">
+<div class="container-company-details animation-sectionss">
     <div class="reviews-container-company-details">
         <h2 class="section-title-company-details">REVIEWS & RATING</h2>
         <div class="reviews-grid-company-details">
@@ -297,7 +297,7 @@ Quick Dials- Training in {{$client->business_name}}
 </div>
 @endif
 
-<div class="container-company-details">
+<div class="container-company-details animation-sectionss">
     <!-- Write Review Form -->
     <div class="write-review-company-details">
         <h3 class="section-title-company-details">WRITE A REVIEW</h3>
@@ -358,11 +358,11 @@ Quick Dials- Training in {{$client->business_name}}
   </div>
 
   <!-- Buttons -->
-<div class="text-end" style="
+<div  style="
     display: flex;
     justify-content: end;
 ">
-    <input type="submit" class="btn btn-primary px-4 me-2" value="Submit" style="width:200px">
+    <input type="submit" class="btn btn-primary" value="Submit" >
   </div>   
   </div>
 </form>
@@ -371,7 +371,7 @@ Quick Dials- Training in {{$client->business_name}}
 </div>
 </div>
 
-<div class="Company-details-banner-descrption">
+<div class="Company-details-banner-descrption animation-sectionss">
     <h1>Airborne Air Hostess Academy in , Delhi</h1>
     <p>
         @php

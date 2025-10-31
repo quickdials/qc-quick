@@ -18,7 +18,7 @@
                 <div class="input-group" style="background-color: rgba(250, 250, 250, 1);">
                     <input type="text" placeholder="Enter keywords..."
                       style="border: none; background-color: rgba(250, 250, 250, 1);">
-                    <button class="btn" style="margin-left:-10px"  > <img class="search-blogs-icons"  src="{{ asset('client/img/seacrh.svg') }}" alt="Search" width="40"></button>
+                    <button class="btn" style="margin-left:-10px"  > <img class="search-blogs-icons"  src="{{ asset('client/img/seacrh.svg') }}" alt="Search" ></button>
                 </div>
             </div>
             <div class="recent-posts mt-4">

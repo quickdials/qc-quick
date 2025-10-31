@@ -27,7 +27,7 @@ echo trim($key);   ?>
 </div>
 <section class="hero-subcategories">
 	<div class="container-subcategories">
-		<div class="hero-subcategories-content">
+		<div class="hero-subcategories-content ">
 			<div class="hero-subcategories-text">
 				<h1 class=""><?php if (!empty($part_id->parent_category)) {
 									echo $part_id->parent_category;
@@ -98,8 +98,8 @@ echo trim($key);   ?>
 <!-- Courses -->
 <section class="courses-section-subcategories">
 	<div class="container-subcategories">
-		<h2 class="section-title-subcatgories">Explore Professional Courses Categories</h2>
-		<div class="courses-grid-subcategories">
+		<h2 class="section-title-subcatgories animation-sectionss">Explore Professional Courses Categories</h2>
+		<div class="courses-grid-subcategories animation-sectionss">
 			@if(!empty($businessServices))
 			@foreach($businessServices as $parent)
 			<div class="course-card-subcategories">
@@ -268,7 +268,7 @@ echo trim($key);   ?>
 	});
 </script>
 
-<div class="container-main">
+<div class="container-main animation-sectionss" style="padding:8px">
 	<div class="container">
 		<div class="main-content-home-page">
 			<div class="hero-image">
@@ -276,7 +276,7 @@ echo trim($key);   ?>
 			</div>
 			<div class="cta-section">
 				<div class="cta-content">
-					<h2 class="cta-title">Do you have any Requirement in your mind?</h2>
+					<h2 class="cta-title animation-sectionss">Do you have any Requirement in your mind?</h2>
 					<div class="cta-buttons">
 						<a href="#" class="btn btn-secondary">Get Started</a>
 						<a href="#" class="btn btn-primary">Get Quote</a>

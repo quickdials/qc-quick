@@ -73,10 +73,11 @@
 <input type="text" name="search" class="form-control search-blog-detilas" placeholder="Enter keywords..." value="" style="
     background: rgba(250, 250, 250, 1);
     border: none;
-">                    <button class="btn" type="submit">
-                        <img src="{{ asset('client/img/seacrh.svg') }}" alt="Search" width="40">
+">                    <button class="btn" type="submit" style="padding: 0px;margin: 0px;" >
+                        <img src="{{ asset('client/img/seacrh.svg') }}" alt="Search" >
                     </button>
                 </form>
+                
             </div>
             <div class="recent-posts mt-4">
                 <h5 class="mb-3">Recent Posts</h5>

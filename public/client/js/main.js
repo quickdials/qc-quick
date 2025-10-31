@@ -20,74 +20,68 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // FAQ accordion functionality
-  (function initFAQAccordion() {
-    const faqListQuickdetails = document.getElementById("faqListQuickdetails");
+  // (function initFAQAccordion() {
+  //   const faqListQuickdetails = document.getElementById("faqListQuickdetails");
 
-    if (!faqListQuickdetails) {
-      console.warn("FAQ list element not found");
-      return;
+  //   if (!faqListQuickdetails) {
+  //     console.warn("FAQ list element not found");
+  //     return;
+  //   }
+
+  //   faqListQuickdetails.addEventListener("click", function (e) {
+  //     const btn = e.target.closest(".faq-question-quickdetails");
+  //     if (!btn) return;
+
+  //     const item = btn.closest(".faq-item-quickdetails");
+  //     const currentlyOpen = faqListQuickdetails.querySelector(
+  //       '.faq-item-quickdetails[data-open="true"]'
+  //     );
+
+  //     // Close previously open item if it's different
+  //     if (currentlyOpen && currentlyOpen !== item) {
+  //       closeFAQItem(currentlyOpen);
+  //     }
+
+  //     // Toggle current item
+  //     const isOpen = item.getAttribute("data-open") === "true";
+  //     if (isOpen) {
+  //       closeFAQItem(item);
+  //     } else {
+  //       openFAQItem(item);
+  //     }
+  //   });
+
+  //   function openFAQItem(item) {
+  //     item.setAttribute("data-open", "true");
+  //     const btn = item.querySelector(".faq-question-quickdetails");
+  //     const icon = item.querySelector(".faq-icon-quickdetails");
+
+  //     if (btn) btn.setAttribute("aria-expanded", "true");
+  //     if (icon) icon.textContent = "−";
+  //   }
+
+  //   function closeFAQItem(item) {
+  //     item.setAttribute("data-open", "false");
+  //     const btn = item.querySelector(".faq-question-quickdetails");
+  //     const icon = item.querySelector(".faq-icon-quickdetails");
+
+  //     if (btn) btn.setAttribute("aria-expanded", "false");
+  //     if (icon) icon.textContent = "+";
+  //   }
+  // })();
+   const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show-animation-sectionss");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15, 
     }
+  );
 
-    faqListQuickdetails.addEventListener("click", function (e) {
-      const btn = e.target.closest(".faq-question-quickdetails");
-      if (!btn) return;
-
-      const item = btn.closest(".faq-item-quickdetails");
-      const currentlyOpen = faqListQuickdetails.querySelector(
-        '.faq-item-quickdetails[data-open="true"]'
-      );
-
-      // Close previously open item if it's different
-      if (currentlyOpen && currentlyOpen !== item) {
-        closeFAQItem(currentlyOpen);
-      }
-
-      // Toggle current item
-      const isOpen = item.getAttribute("data-open") === "true";
-      if (isOpen) {
-        closeFAQItem(item);
-      } else {
-        openFAQItem(item);
-      }
-    });
-
-    function openFAQItem(item) {
-      item.setAttribute("data-open", "true");
-      const btn = item.querySelector(".faq-question-quickdetails");
-      const icon = item.querySelector(".faq-icon-quickdetails");
-
-      if (btn) btn.setAttribute("aria-expanded", "true");
-      if (icon) icon.textContent = "−";
-    }
-
-    function closeFAQItem(item) {
-      item.setAttribute("data-open", "false");
-      const btn = item.querySelector(".faq-question-quickdetails");
-      const icon = item.querySelector(".faq-icon-quickdetails");
-
-      if (btn) btn.setAttribute("aria-expanded", "false");
-      if (icon) icon.textContent = "+";
-    }
-  })();
-
- // ✅ Global Animation on scroll (one-time run)
-const observer = new IntersectionObserver(
-  (entries, obs) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-
-        // ✅ ek vaar show hone ke baad observer hata do
-        obs.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.15, // 15% visible hone te hi trigger
-  }
-);
-
-// observe all .hidden elements globally
-document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
-
-});
+  document.querySelectorAll(".animation-sectionss").forEach((el) => observer.observe(el));
+})
