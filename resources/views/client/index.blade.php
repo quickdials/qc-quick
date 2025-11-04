@@ -46,11 +46,12 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
   </div>
 </section>
 
-<section class="categories-section-country  ">
-  <div class="categories-section-title">
+<section class="categories-section-country ">
+  <div class="animation-sectionss">
+  <div class="categories-section-title ">
     <h2 class="categories-title  ">Explore Some Of Our Categories</h2>
   </div>
-  <div class="categories-grid-country animation-sectionss">
+  <div class="categories-grid-country ">
     <a href="{{ url('categories/professional-courses') }}" class="category-item-country">
       <div class="category-icon">
         <img src="{{ asset('img/IT-Training.png') }}" alt="IT Courses">
@@ -165,6 +166,7 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
       </div>
       <span class="category-name">Schools</span>
     </a>
+  </div>
   </div>
 </section>
 
@@ -551,14 +553,14 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
   </div>
 </div>
 <div class="container-main animation-sectionss">
-  <div class="container">
+  <div class="container" style="padding:0;">
     <div class="main-content-home-page">
       <div class="hero-image">
         <img src="{{ asset('client/images/main-sections.jpg') }}" alt="Professional businessman in modern office">
       </div>
       <div class="cta-section">
         <div class="cta-content">
-          <h2 class="cta-title animation-sectionss">Do you have any Requirement in your mind?</h2>
+          <h2 class="cta-title ">Do you have any Requirement in your mind?</h2>
           <div class="cta-buttons">
             <a href="#" class="btn btn-secondary">Get Started</a>
             <a href="#" class="btn btn-primary">Get Quote</a>

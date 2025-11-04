@@ -152,16 +152,26 @@
                         <img src="<?php echo asset('client/images/small-logo.png'); ?>" alt="Logo">
                     </a>
                 </div>
-                <div class="second-search-wrapper" id="wapper-showhide-dynamic">
+                <div class="second-search-wrapper" id="wapper-showhide-dynamic" onclick="toggleDropdown()">
                     <div class="second-location-input">
                         <img src="{{ asset('client/img/Icon.svg') }}" alt="" height="24px" width="24px">
-                        <select>
-                            <option value="">Location</option>
-                            <option value="delhi">Delhi</option>
-                            <option value="mumbai">Mumbai</option>
-                            <option value="bangalore">Bangalore</option>
-                        </select>
+                                   <input type="text" placeholder="Select Location" style="border:none; padding: 8px; width: 100%;" >
+
                     </div>
+                    <div class="location-dropdown" id="locationDropdown">
+                        <button class="detect-btn">
+                            <img src="{{ asset('client/img/Icon.svg') }}" alt="" height="24px" width="24px">
+                            <p style="padding-top: 4px;">Detect Location</p>
+                        </button>
+
+  <div class="dropdown-section">
+    
+    <div class="location-item">Karol Bagh, Delhi</div>
+    <div class="location-item">Uttam Nagar, Delhi</div>
+    <div class="location-item">Rangareddy</div>
+  </div>
+</div>
+
                     <input type="text" placeholder="Search..." class="second-search-box">
                 </div>
                 <div class="second-nav-links">
@@ -183,12 +193,8 @@
     <div class="second-mobile-sidebar " id="second-mobile-sidebar">
         <div class="second-mobile-location-input">
                 <i class="fas fa-location-dot icon"></i>
-                <select>
-                    <option value="">Location</option>
-                    <option value="delhi">Delhi</option>
-                    <option value="mumbai">Mumbai</option>
-                    <option value="bangalore">Bangalore</option>
-                </select>
+<input type="text" placeholder="Select Location" style="border:none;  width: 100%; padding: 0px;" >
+
             </div>
             <input type="text" placeholder="Search..." class="second-mobile-search-box">
   <a href="/">Home</a>

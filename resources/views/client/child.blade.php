@@ -28,7 +28,7 @@ Quick Dials- Business Services POPULAR CATEGORIES, B2B & BUSINESS SERVICES
       </div>
       <div class="hero-subcategories-extra">
         <div class="hero-subcategories-rating-subcategories">
-          <p class="subtitle" style="color: #DFE0E5; padding-top: 10px;">
+          <p class="subtitle" style="color: #DFE0E5; padding-top: 2px;">
             <?php if (!empty($child_id->ratingvalue)) {
               echo number_format((float)$child_id->ratingvalue, 1, '.', '');
             } else {
@@ -80,10 +80,10 @@ Quick Dials- Business Services POPULAR CATEGORIES, B2B & BUSINESS SERVICES
 </section>
 
 <!-- Courses -->
-<section class="courses-section">
+<section class="courses-section ">
   <div class="container-childsubcategories " >
     <h2 class="section-title-subcatgories">Explore Professional Courses Categories</h2>
-    <div class="courses-grid-categories animation-sectionss">
+    <div class="courses-grid-categories ">
       @if(!empty($childCategory))
       @foreach($childCategory as $child)
       <div class="course-card-subcategories">
@@ -116,7 +116,7 @@ Quick Dials- Business Services POPULAR CATEGORIES, B2B & BUSINESS SERVICES
       </div>
       <div class="cta-section">
         <div class="cta-content">
-          <h2 class="cta-title animation-sectionss">Do you have any Requirement in your mind?</h2>
+          <h2 class="cta-title">Do you have any Requirement in your mind?</h2>
           <div class="cta-buttons">
             <a href="#" class="btn btn-secondary">Get Started</a>
             <a href="#" class="btn btn-primary">Get Quote</a>

@@ -1065,7 +1065,7 @@ Individual category styling .it-training {
 }
 
 .overlay {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .image-pre-wedding::after {
@@ -1238,15 +1238,72 @@ Individual category styling .it-training {
 }
 
 .second-location-input {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 5px 10px;
-    background-color: #fff;
-    width: 170px;
-    height: 47px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 5px 10px;
+  background-color: #fff;
+  width: 170px;
+  height: 47px;
+  position: relative;
+  cursor: pointer;
 }
+
+.second-location-input input {
+  border: none;
+  outline: none;
+  padding: 8px;
+  width: 100%;
+}
+
+.location-dropdown {
+    position: absolute;
+    top: 49px;
+    left: 247px;
+    background: #fff;
+    width: 391px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 100;
+}
+
+.detect-btn {
+  width: 100%;
+  background: #f1f5ff;
+  color: #007bff;
+  border: none;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  margin-left: 0px;
+  border-radius: 0px;
+  display: flex;
+}
+
+.dropdown-section {
+  padding: 8px 12px;
+}
+
+.section-title {
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 5px;
+}
+
+.location-item {
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.location-item:hover {
+  color: #007bff;
+}
+
 
 .second-location-input .icon {
     margin-right: 8px;
@@ -1430,7 +1487,7 @@ Individual category styling .it-training {
 .hero {
     background: linear-gradient(135deg, #057aec, #045bb8);
     color: white;
-    min-height: 140px;
+    min-height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1546,6 +1603,7 @@ Individual category styling .it-training {
 @media (max-width:480px) {
     .hero-text h1 {
         font-size: 1.6rem;
+        margin-top: 7px;
     }
 
     .section-title-subcatgories {
@@ -1662,7 +1720,7 @@ Individual category styling .it-training {
 
 .container-main,
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
@@ -1882,7 +1940,7 @@ Individual category styling .it-training {
 .hero-subcategories {
     background: linear-gradient(135deg, #057aec, #045bb8);
     color: white;
-    min-height: 140px;
+    min-height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1895,12 +1953,12 @@ Individual category styling .it-training {
     align-items: center;
     gap: 92px;
     justify-content: center;
+    margin-top: -20px;
 }
 
 .hero-subcategories-text h1 {
     font-size: 30px;
     font-weight: 500;
-    margin-bottom: 5px;
 }
 
 .hero-subcategories-text .subtitle {
@@ -2011,7 +2069,7 @@ Individual category styling .it-training {
 
 .container-main,
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
@@ -2022,7 +2080,9 @@ Individual category styling .it-training {
     }
 
     .hero-subcategories-text h1 {
-        font-size: 2rem;
+        font-size: 12px;
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
 
     .hero-subcategories-text .subtitle {
@@ -2055,12 +2115,10 @@ Individual category styling .it-training {
 
 @media (max-width: 480px) {
     .hero-subcategories-content {
-        padding: 10px;
+        margin-top: 0px;
     }
 
-    .hero-subcategories-text h1 {
-        font-size: 1.6rem;
-    }
+ 
 
     .section-title-subcatgories {
         font-size: 1.5rem;
@@ -4187,7 +4245,7 @@ button {
     background: #0078ff;
     color: white;
     text-align: center;
-    padding: 10px 10px 10px;
+    padding: 10px 10px 170px;
     position: relative;
     overflow: hidden;
 }
@@ -4195,6 +4253,7 @@ button {
 .hero-homepage h1 {
     font-size: 40px;
     font-weight: 500;
+    margin-bottom: 20px;
 }
 
 .hero-homepage p {
@@ -4215,6 +4274,7 @@ button {
     overflow: hidden;
     height: 55px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    margin-top: 30px;
 }
 
 .input-box-homepage {
@@ -4281,52 +4341,50 @@ button {
 
 .active1 {
     width: 267px;
-    height: 172px;
+    height: 316px;
 }
 
 .active5 {
     width: 209px;
-    height: 189px;
+    height: 366px;
 }
 
 .active4 {
     width: 315px;
-    height: 221px;
+    height: 392px;
 }
 
 .active2 {
     width: 326px;
-    height:221px;
+    height: 393px;
 }
 
 .active3 {
     width: 209px;
-    height: 200px;
+    height: 345px;
 }
 
 .active1 {
-    top: 88px;
+    top: 106px;
     left: 522px;
 }
 
 .active5 {
-    top: 65px;
+    top: 82px;
     left: 299px;
 }
 
 .active2 {
-    top: 35px;
+    top: 60px;
     left: -35px;
 }
-
 .active3 {
-    top: 62px;
+    top: 75px;
     left: 800px;
-    border-radius: 36px;
 }
 
 .active4 {
-    top: 35px;
+    top: 56px;
     right: -35px;
     border-radius: 36px;
 }
@@ -4815,8 +4873,8 @@ button {
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 1300px;
-    padding: 20px;
-    height: 400px;
+    /* padding: 20px;
+    height: 400px; */
 }
 
 .hero-image {
@@ -4861,7 +4919,7 @@ button {
 }
 
 .cta-title {
-    font-size: 45px !important;
+    font-size: 55px !important;
     margin-bottom: 20px;
     color: rgba(255, 255, 255, 1);
     font-weight: 500;
@@ -5039,4 +5097,37 @@ button {
     max-width: 300px;
   }
 }
+@media (max-width: 768px) {
+  .hero-subcategories {
+    min-height: 100px;
+    padding: 0px !important;
+    flex-direction: column;
+  }
+}
+.courses-grid-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
 
+.course-card-subcategories {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideIn 0.8s ease forwards;
+}
+
+.course-card-subcategories:nth-child(1) { animation-delay: 0.2s; }
+.course-card-subcategories:nth-child(2) { animation-delay: 0.4s; }
+.course-card-subcategories:nth-child(3) { animation-delay: 0.6s; }
+.course-card-subcategories:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

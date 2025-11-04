@@ -19,57 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // FAQ accordion functionality
-  // (function initFAQAccordion() {
-  //   const faqListQuickdetails = document.getElementById("faqListQuickdetails");
-
-  //   if (!faqListQuickdetails) {
-  //     console.warn("FAQ list element not found");
-  //     return;
-  //   }
-
-  //   faqListQuickdetails.addEventListener("click", function (e) {
-  //     const btn = e.target.closest(".faq-question-quickdetails");
-  //     if (!btn) return;
-
-  //     const item = btn.closest(".faq-item-quickdetails");
-  //     const currentlyOpen = faqListQuickdetails.querySelector(
-  //       '.faq-item-quickdetails[data-open="true"]'
-  //     );
-
-  //     // Close previously open item if it's different
-  //     if (currentlyOpen && currentlyOpen !== item) {
-  //       closeFAQItem(currentlyOpen);
-  //     }
-
-  //     // Toggle current item
-  //     const isOpen = item.getAttribute("data-open") === "true";
-  //     if (isOpen) {
-  //       closeFAQItem(item);
-  //     } else {
-  //       openFAQItem(item);
-  //     }
-  //   });
-
-  //   function openFAQItem(item) {
-  //     item.setAttribute("data-open", "true");
-  //     const btn = item.querySelector(".faq-question-quickdetails");
-  //     const icon = item.querySelector(".faq-icon-quickdetails");
-
-  //     if (btn) btn.setAttribute("aria-expanded", "true");
-  //     if (icon) icon.textContent = "−";
-  //   }
-
-  //   function closeFAQItem(item) {
-  //     item.setAttribute("data-open", "false");
-  //     const btn = item.querySelector(".faq-question-quickdetails");
-  //     const icon = item.querySelector(".faq-icon-quickdetails");
-
-  //     if (btn) btn.setAttribute("aria-expanded", "false");
-  //     if (icon) icon.textContent = "+";
-  //   }
-  // })();
-   const observer = new IntersectionObserver(
+  // Scroll animations
+  const observer = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -78,10 +29,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    {
-      threshold: 0.15, 
-    }
+    { threshold: 0.15 }
   );
 
   document.querySelectorAll(".animation-sectionss").forEach((el) => observer.observe(el));
-})
+
+  // ✅ Dropdown logic
+  window.toggleDropdown = function () {
+    const dropdown = document.getElementById("locationDropdown");
+    dropdown.style.display =
+      dropdown.style.display === "block" ? "none" : "block";
+  };
+
+  // ✅ Close dropdown when clicking outside
+  document.addEventListener("click", function (e) {
+    const inputBox = document.querySelector(".second-location-input");
+    const dropdown = document.getElementById("locationDropdown");
+    if (!inputBox.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.style.display = "none";
+    }
+  });
+  
+});

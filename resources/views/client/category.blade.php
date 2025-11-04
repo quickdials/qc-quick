@@ -44,9 +44,9 @@ echo trim($key);   ?>
 				</p>
 
 			</div>
-			<div class="hero-subcategories-extra">
+			<div class="hero-subcategories-extra ">
 				<div class="hero-subcategories-rating-subcategories">
-					<p class="subtitle" style="color: #DFE0E5; padding-top:10px"><?php if (!empty($part_id->ratingvalue)) {
+					<p class="subtitle" style="color: #DFE0E5; padding-top:2px"><?php if (!empty($part_id->ratingvalue)) {
 																	echo number_format((float)$part_id->ratingvalue, 1, '.', '');
 																} else {
 																	echo "1.0";
@@ -96,10 +96,9 @@ echo trim($key);   ?>
 </section>
 
 <!-- Courses -->
-<section class="courses-section-subcategories">
-	<div class="container-subcategories">
-		<h2 class="section-title-subcatgories animation-sectionss">Explore Professional Courses Categories</h2>
-		<div class="courses-grid-subcategories animation-sectionss">
+<section class="courses-section-subcategories ">
+		<h2 class="section-title-subcatgories">Explore Professional Courses Categories</h2>
+		<div class="courses-grid-subcategories ">
 			@if(!empty($businessServices))
 			@foreach($businessServices as $parent)
 			<div class="course-card-subcategories">
@@ -276,7 +275,7 @@ echo trim($key);   ?>
 			</div>
 			<div class="cta-section">
 				<div class="cta-content">
-					<h2 class="cta-title animation-sectionss">Do you have any Requirement in your mind?</h2>
+					<h2 class="cta-title ">Do you have any Requirement in your mind?</h2>
 					<div class="cta-buttons">
 						<a href="#" class="btn btn-secondary">Get Started</a>
 						<a href="#" class="btn btn-primary">Get Quote</a>
