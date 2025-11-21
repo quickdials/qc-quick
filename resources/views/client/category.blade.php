@@ -32,8 +32,8 @@ echo trim($key);   ?>
 				<h1 class=""><?php if (!empty($part_id->parent_category)) {
 									echo $part_id->parent_category;
 								} ?></h1>
-				<p class="subtitle" style="color: #DFE0E5;">
-					<a style="color: #DFE0E5;" href="{{url('categories/')}}/<?php if (!empty($part_id->parent_category)) {
+				<p class="subtitle" style="color:black;">
+					<a style="color: black;" href="{{url('categories/')}}/<?php if (!empty($part_id->parent_category)) {
 																				echo generate_slug($part_id->parent_category);
 																			} ?>">
 						Categories /
@@ -46,7 +46,7 @@ echo trim($key);   ?>
 			</div>
 			<div class="hero-subcategories-extra ">
 				<div class="hero-subcategories-rating-subcategories">
-					<p class="subtitle" style="color: #DFE0E5; padding-top:2px"><?php if (!empty($part_id->ratingvalue)) {
+					<p class="subtitle" style="color: rgba(0, 0, 0, 0.7); padding-top:3px"><?php if (!empty($part_id->ratingvalue)) {
 																	echo number_format((float)$part_id->ratingvalue, 1, '.', '');
 																} else {
 																	echo "1.0";
@@ -97,8 +97,8 @@ echo trim($key);   ?>
 
 <!-- Courses -->
 <section class="courses-section-subcategories ">
-		<h2 class="section-title-subcatgories">Explore Professional Courses Categories</h2>
-		<div class="courses-grid-subcategories ">
+		
+		<div class="courses-grid-subcategories" >
 			@if(!empty($businessServices))
 			@foreach($businessServices as $parent)
 			<div class="course-card-subcategories">

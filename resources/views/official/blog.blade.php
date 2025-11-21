@@ -72,7 +72,7 @@
                         <div class="blog-card-quickdetails-body mt-2">
                             <span class="category-badge">{{ date('d M Y', strtotime($blog->created_at)) }}</span>
                             <h3>
-                                <a href="{{ url('blog/' . $blog->slug) }}">{{ Str::limit($blog->name, 50) }}</a>
+                                <a href="{{ url('blog/' . $blog->slug) }}" style="font-size:26px;color: black;font-weight: 100;">{{ Str::limit($blog->name, 50) }}</a>
                                 <img src="{{ asset('client/img/Icon wrap.svg') }}" alt=""  class="icons-arrow-image" style="width: 24px; height: 28px;">
                             </h3>
                             <p>{{ Str::limit(strip_tags($blog->description), 120) }}</p>

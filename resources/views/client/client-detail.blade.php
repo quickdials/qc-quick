@@ -12,7 +12,7 @@ Quick Dials- Training in {{$client->business_name}}
     <div class="company-details-first-top">
         <div class="company-details-first-top-images">
             <img src="{{ asset('client/img/bannercompanyDetaisls (1).png') }}" alt="" />
-            <img src="{{ asset('client/img/comp.png') }}" alt="" />
+            <img src="{{ asset('client/img/comp.png') }}" alt="" class="mobile-view-hidden" />
             <div class="four-grid-company">
                 <img src="{{ asset('client/img/bannercompanyDetaisls (2).png') }}" alt="" />
                 <img src="{{ asset('client/img/companydetislabannersmain (1).png') }}" alt="" />
@@ -110,6 +110,7 @@ Quick Dials- Training in {{$client->business_name}}
             }
             ?>
             <div class="inner-intro">
+              <h1 style="color:black">Service Offered</h1>
                 <div class="col-md-6">
                     <div class="services">
                         <div class="services-list">
@@ -296,7 +297,48 @@ Quick Dials- Training in {{$client->business_name}}
     </div>
 </div>
 @endif
-
+<div class="Related-section">
+<h1>Add Related Keyword Search</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis velit voluptatem ad similique dolores repellendus perspiciatis! Facilis fuga excepturi illo quod adipisci, expedita soluta possimus maiores tenetur laboriosam voluptates dolorum.</p>    
+</div>
+<div class="Related-section">
+<h1>Add Box Certified Document</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis velit voluptatem ad similique dolores repellendus perspiciatis! Facilis fuga excepturi illo quod adipisci, expedita soluta possimus maiores tenetur laboriosam voluptates dolorum.</p>    
+</div>
+    
+<div>
+<h1 class="highlights-h1">Highlights From the business</h1>
+<div class="categories-grid-country ">
+    <a href="http://127.0.0.1:8000/categories/professional-courses" class="category-item-country">
+      <div class="category-icon">
+        <img src="http://127.0.0.1:8000/img/IT-Training.png" alt="IT Courses">
+      </div>
+      <span class="category-name">IT Courses</span>
+    </a>
+    <a href="http://127.0.0.1:8000/child/wedding-planning" class="category-item-country">
+      <div class="category-icon">
+        <img src="http://127.0.0.1:8000/img/wedding.png" alt="Wedding Planning">
+      </div>
+      <span class="category-name">Wedding Planning</span>
+    </a>
+    <a href="http://127.0.0.1:8000/categories/electric-services" class="category-item-country">
+      <div class="category-icon">
+        <img src="http://127.0.0.1:8000/img/electric-services.png" alt="Electric Services">
+      </div>
+      <span class="category-name">Electric Services</span>
+    </a>
+    <a href="http://127.0.0.1:8000/categories/entrance-exams-coaching" class="category-item-country">
+      <div class="category-icon">
+        <img src="http://127.0.0.1:8000/img/government-exam.png" alt="Government Exam">
+      </div>
+      <span class="category-name">Government Exam</span>
+    </a>
+  </div>
+</div>
+  <div class="Related-section">
+<h1>Add multiple Review</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis velit voluptatem ad similique dolores repellendus perspiciatis! Facilis fuga excepturi illo quod adipisci, expedita soluta possimus maiores tenetur laboriosam voluptates dolorum.</p>    
+</div>
 <div class="container-company-details animation-sectionss">
     <!-- Write Review Form -->
     <div class="write-review-company-details">

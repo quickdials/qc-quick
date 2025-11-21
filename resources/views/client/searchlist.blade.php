@@ -60,11 +60,11 @@
 						echo trim($key);
 					} ?> in <?php echo ucfirst($city); ?> </h1>
 
-				<p class="subtitle {{ empty($keyword->child_category) ? 'hidden' : '' }}" style="color: #DFE0E5;">
+				<p class="subtitle {{ empty($keyword->child_category) ? 'hidden' : '' }}" style="color:black;">
 					@if(!empty($keyword))
 					<a href="{{url('child/'.$keyword->child_slug)}}" title="<?php if (!empty($keyword->child_category)) {
 																				echo $keyword->child_category;
-																			} ?>" style="color: white">
+																			} ?>" style="color: black">
 						<?php if (!empty($keyword->child_category)) {
 							echo $keyword->child_category;
 						} ?>
@@ -86,7 +86,7 @@
 			@endphp
 			<div class="hero-extra">
 				<div class="hero-rating">
-					<p class="subtitle" style="color: #DFE0E5;">
+					<p class="subtitle" style="color: black;">
 						{{ number_format($rating, 1) }} out of 5 based on {{ $ratingCount }} rating{{ $ratingCount > 1 ? 's' : '' }}
 					</p>
 					<div class="stars-company-black">
@@ -112,10 +112,10 @@
 	</div>
 </section>
 <div class="companylisted-heading">
-	<h2>Air Hostess</h2>
+	<!-- <h2>Air Hostess</h2> -->
 	@if(isset($keyword) && null!=$keyword->top_description)
-	<div class="col-xs-12 top_description" style="margin-top:20px;color:#033967">
-		<p title="<?php if (!empty($keyword->keyword)) {
+	<div class="col-xs-12 top_description" style="color:#033967">
+		<p style="text-align: center;" title="<?php if (!empty($keyword->keyword)) {
 						echo $keyword->keyword;
 					} ?> in {{Request::segment(1)}}">
 			<?php if (!empty($keyword->top_description)) {
@@ -191,24 +191,28 @@
 							<img src="{{ asset('client/images/ThumbsUp.svg') }}" alt="ThumbsUp">
 							@endif
 						</div>
+						 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
 						<div class="course-logo">
 							<a href="{{ url('business-details').'/'.$client->business_slug }}" title="{{ $client->business_name }}">
 								@if(!empty($client->logo))
 								<?php $profilePic = unserialize($client->logo); ?>
-								<img src="{{ asset($profilePic['large']['src']) }}" alt="{{ $client->business_name }}" height="120" style="width:100%;object-fit:cover;">
+								<img src="{{ asset($profilePic['large']['src']) }}" alt="{{ $client->business_name }}" class="course-image-slide" height="auto"  style="width:100%;object-fit:contain;">
 								@else
-								<img src="{{ asset('client/images/default_pp_small.jpg') }}" alt="Business Logo" height="120" style="width:100%;object-fit:cover;">
+								<img src="{{ asset('client/images/bannerImagold.jpg') }}" alt="Business Logo" height="120" class="course-image-slide" style="width:100%;object-fit:cover;">
 								@endif
 							</a>
 						</div>
 					</div>
 					<div class="course-content">
 						<h3 class="course-title">
+					    <i class="fa-solid fa-building" style="margin-right:6px;color:#0b1034;"></i>
 							<a href="{{ url('business-details').'/'.$client->business_slug }}" title="{{ $client->business_name }}">
 								{{ ucfirst(strtolower(substr($client->business_name, 0, 28))) }}
 							</a>
 						</h3>
 						<div class="course-subtitle">
+						<i class="fa-solid fa-graduation-cap" style="margin-right:6px;color:#0b1034;"></i>
 							{{ strtoupper($client->client_type ?? 'TRAINING PROVIDER') }}
 							@if(!empty($client->year_established))
 							• SINCE {{ $client->year_established }}
@@ -221,12 +225,15 @@
 							@endphp
 							@if(!empty($address))
 							<ul>
-								<li>{{ ucfirst($client->city ?? '') }}</li>
-								<li>{{ ucfirst($client->state ?? '') }}</li>
+
+		<li><i class="fa-solid fa-location-dot" style="margin-right:6px;color:#0b1034;"></i>{{ ucfirst($client->city ?? '') }}</li>
+		<li><i class="fa-solid fa-location-dot" style="margin-right:6px;color:#0b1034;"></i>{{ ucfirst($client->state ?? '') }}</li>
 							</ul>
 							@endif
 						</div>
 						<div class="course-description">
+							    <i class="fa-solid fa-tags" style="margin-right:6px;color:#0b1034;"></i>
+
 							Services:
 							<ul>
 								@php
@@ -240,7 +247,8 @@
 								@endphp
 								@foreach($assignedKwds as $assignedKwd)
 								<li>
-									<a href="{{ url(generate_slug($assignedKwd->keyword)) }}" title="{{ $assignedKwd->keyword }}" style="color:rgba(11, 16, 52, 0.5)">
+								    <i class="fa-solid fa-angles-right" style="margin-right:6px;color:#0b1034;"></i>
+	<a href="{{ url(generate_slug($assignedKwd->keyword)) }}" title="{{ $assignedKwd->keyword }}" style="color:rgba(11, 16, 52, 0.5)">
 										{{ $assignedKwd->keyword }}
 									</a>
 								</li>
@@ -296,7 +304,7 @@
 					}
 
 					.course-image {
-						flex: 1;
+						/* flex: 1; */
 						position: relative;
 					}
 

@@ -423,7 +423,7 @@ color: #fff;
                     <div class="fieldblock">
                 
                         <div class="col-xs-8 col-sm-8 col-md-8">
-                			<input type="submit" class="btn btn-primary submit-btn-2" value="Send Enquiry" />
+                			<input type="submit" class="btn btn-primary submit-btn-2-quick"  value="Send Enquiry"  />
                 			<input type="reset" class="reset_lead_form hide" value="reset" />
                             
                     </div>

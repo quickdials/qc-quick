@@ -146,11 +146,13 @@
     <header>
         <header class="second-header">
             <div class="second-header-container">
-                <div class="second-logo">
-                    <a href="{{url('/')}}">
-                        <img src="<?php echo asset('client/images/small-logo.png'); ?>" alt="Logo">
-                    </a>
-                </div>
+            <div class="second-logo">
+    <a href="{{url('/')}}">
+        <img src="{{ asset('/client/images/small-logo.png') }}" class="logo-desktop" alt="Logo">
+        <img src="{{ asset('/client/images/favicon.png') }}" class="logo-mobile" alt="Mobile Logo">
+    </a>
+</div>
+
                 <div class="second-search-wrapper">
                   <div class="second-location-input" onclick="toggleDropdown()">
   <img src="http://127.0.0.1:8000/client/img/Icon.svg" alt="" height="24px" width="24px">
@@ -159,58 +161,49 @@
 
 <div class="location-dropdown" id="locationDropdown">
      <button class="detect-btn">
-                            <img src="{{ asset('client/img/Icon.svg') }}" alt="" height="24px" width="24px">
-                            <p style="padding-top: 4px;">Detect Location</p>
-                        </button>
+    <img src="{{ asset('client/img/Icon.svg') }}" alt="" height="24px" width="24px">
+    <p style="padding-top: 4px;">Detect Location</p>
+    </button>
   <div class="dropdown-section">
     <div class="location-item">Karol Bagh, Delhi</div>
     <div class="location-item">Uttam Nagar, Delhi</div>
     <div class="location-item">Rangareddy</div>
   </div>
 </div>
-
-      
-
-
-                    <input type="text" placeholder="Search..." class="second-search-box">
+       <div class="input-wrapper">
+    <input type="text" placeholder="Search..." class="second-search-box">
+    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
+    </svg>
+</div>
                 </div>
-
                 <div class="second-nav-links">
                     <a href="{{url('/')}}">Home</a>
                     <a href="{{url('/about-us')}}">About Us</a>
-                    <a href="{{url('/business-owners')}}">Business Free Listing</a>
+  <a href="{{url('/business-owners')}}" style="color:black">
+                <div class="biz-btn">Business</div>
+                Free Listing
+            </a>                    
                     <a href="{{ url('business-owners') }}"><button class="second-login-btn">Login/Signup</button></a>
                 </div>
 
-                <button class="second-hamburger" id="second-menu-btn" style="color: black;">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+               <div class="mobile-buttons">
+         <div class="input-wrapper">
+    <input type="text" placeholder="Search..." class="second-search-box">
+    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
+    </svg>
+</div>   
+            <a href="{{ url('business-owners') }}" class="mobile-login-btn">
+                Login / Signup
+            </a>
+        </div>
             </div>
         </header>
 
-        <div class="second-mobile-sidebar" id="second-mobile-sidebar">
-            <div class="second-mobile-location-input">
-                <i class="fas fa-location-dot icon"></i>
-             <input type="text" placeholder="Select Location" style="border:none; padding: 0px; width: 100%;" >
-             
-            </div>
-            <input type="text" placeholder="Search..." class="second-mobile-search-box">
-            <a href="{{url('/')}}">Home</a>
-            <a href="{{url('/about-us')}}">About Us</a>
-            <a href="{{url('/business-owners')}}"></a>
-            <button class="second-mobile-login-btn">Login/Signup</button>
-        </div>
+      
 
-        <script>
-            const secondBtn = document.getElementById('second-menu-btn');
-            const secondSidebar = document.getElementById('second-mobile-sidebar');
-
-            secondBtn.addEventListener('click', () => {
-                secondSidebar.classList.toggle('show');
-            });
-        </script>
+     
         {{-- <div class="header-container">
       <!-- Logo -->
       <div class="logo">
@@ -226,21 +219,16 @@
             <a href="{{ url('business-owners') }}"> <button class="login-btn"> Login/Signup </button> </a>
         </div>
 
-        <!-- Hamburger -->
-        <button class="hamburger" id="menu-btn">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-        </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobile-menu">
-            <a href="/">Home</a>
-            <a href="{{url('/about-us')}}">About Us</a>
-            <a href="{{url('/business-owners')}}">Business Free Listing</a>
-            <button class="mobile-login-btn">Login/Signup</button>
+      <div class="mobile-buttons">
+          <div class="input-wrapper">
+    <input type="text" placeholder="Search..." class="second-search-box">
+    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
+    </svg>
+</div>   
+            <a href="{{ url('business-owners') }}" class="mobile-login-btn">
+                Login / Signup
+            </a>
         </div>
     </header> --}}
     {{-- <header id="header">
@@ -596,23 +584,23 @@
 
                 <div class="footer-col">
                     <h4>Education Training</h4>
-                    <a title="Job Training" href="{{url('job-training')}}" tabindex="0">Job Training</a>|
+                    <a title="Job Training" href="{{url('job-training')}}" tabindex="0">Job Training</a>
                     <a title="School Tuitions" href="{{url('schools-colleges')}}" tabindex="0">Schools &
-                        Colleges</a>|
+                        Colleges</a>
                     <a title="Entrance Exam Coaching" href="{{url('categories/entrance-exams-coaching')}}"
-                        tabindex="0">Entrance Exam Coaching</a>|
+                        tabindex="0">Entrance Exam Coaching</a>
                     <a title="Competitive Exam Coaching" href="{{url('competitive-exam-coaching')}}"
-                        tabindex="0">Competitive Exam Coaching</a>|
+                        tabindex="0">Competitive Exam Coaching</a>
                     <a title="Distance Education" href="{{url('distance-education')}}" tabindex="0">Distance
-                        Education</a>|
+                        Education</a>
                     <a title="Language Training" href="{{url('language-training')}}" tabindex="0">Language
-                        Training</a>|
+                        Training</a>
                     <a title="Overseas Education" href="{{url('overseas-education-consultants')}}"
-                        tabindex="0">Overseas Education</a>|
+                        tabindex="0">Overseas Education</a>
                     <a title="College &amp; University Tuitions" href="{{url('college-tuition')}}"
-                        tabindex="0">College &amp; University Tuitions</a>|
+                        tabindex="0">College &amp; University Tuitions</a>
                     <a title="Bank &amp; Insurance Exam Coaching" href="{{url('bank-insurance-exam-coaching')}}"
-                        tabindex="0">Bank &amp; Insurance Exam Coaching</a>|
+                        tabindex="0">Bank &amp; Insurance Exam Coaching</a>
                     <a title="Placement Consultancies" href="{{url('placement-consultants')}}"
                         tabindex="0">Placement Consultants</a></li>
                 </div>
@@ -638,10 +626,7 @@
                     <a title="Advocates &amp; Lawyers" href="{{url('advocates-lawyers')}}" tabindex="0">Advocates
                         &amp; Lawyers</a>
                 </div>
-            </div>
-
-            <div class="footer-sections">
-                <div class="footer-col">
+                  <div class="footer-col">
                     <h4>Cities Of India</h4>
                     <a title="Chennai" href="{{url('chennai')}}" tabindex="0">Chennai</a>
                     <a title="Mumbai" href="{{url('mumbai')}}" tabindex="0">Mumbai</a>
@@ -669,10 +654,12 @@
                 </div>
             </div>
 
+              
+
             <div class="footer-bottom">
                 <div class="footer-logo">
                     <img src="<?php echo asset('client/images/small-logo.png'); ?>" alt="Logo">
-                    <p>Lorem ipsum dolor sit amet consectetur. Urna sem egestas sagittis mauris odio. Dui integer hac non
+                    <p style="text-align:left">Lorem ipsum dolor sit amet consectetur. Urna sem egestas sagittis mauris odio. Dui integer hac non
                         egestas quis sit eget. Pharetra consequat massa laoreet mauris. Scelerisque.</p>
                     <p> info@quickdads.com</p>
                     <div class="social-icons">
@@ -684,7 +671,7 @@
                 </div>
                 <div class="footer-right">
                     <div class="quick-links">
-                        <h4>Quick Links</h4>
+                        <h4 style="color:white">Quick Links</h4>
                         <a href="#">About Us</a>
                         <a href="#">Pricing</a>
                         <a href="#">Careers</a>
@@ -695,13 +682,13 @@
                     </div>
 
                     <div class="legal">
-                        <h4>Legal Terms</h4>
+                        <h4  style="color:white">Legal Terms</h4>
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms & Conditions</a>
                     </div>
 
                     <div class="payment">
-                        <h4>We Accept</h4>
+                        <h4  style="color:white">We Accept</h4>
                         <div class="payment-methods">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="MasterCard">

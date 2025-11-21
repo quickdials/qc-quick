@@ -1047,7 +1047,7 @@
         .bestDealpopup {
             width: 90%;
             left: 50%;
-            top: 10%;
+            top: 20%;
             margin-left: -45%;
         }
 
@@ -1370,6 +1370,7 @@
             flex-wrap: wrap;
             justify-content: flex-start;
             gap: 6px 9px;
+            padding: 20px;
         }
 
         .course-program ul li {
@@ -1436,7 +1437,7 @@
             font-style: italic;
             height: 28px;
             margin-bottom: 20px;
-            width: 100%;
+            width: 100% !important;
             font-weight: 500;
         }
 

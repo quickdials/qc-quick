@@ -20,7 +20,7 @@ Quick Dials- Business Services POPULAR CATEGORIES, B2B & BUSINESS SERVICES
         <h1 class=""><?php if (!empty($child_id->child_category)) {
                         echo $child_id->child_category;
                       } ?></h1>
-        <a style="color: #DFE0E5;" href="{{url('child/')}}/<?php if (!empty($child_id->child_category)) {
+        <a style="color:black;" href="{{url('child/')}}/<?php if (!empty($child_id->child_category)) {
                                                               echo generate_slug($child_id->child_category);
                                                             } ?>">Categories / <?php if (!empty($child_id->child_category)) {
                                                                                   echo $child_id->child_category;
@@ -28,7 +28,7 @@ Quick Dials- Business Services POPULAR CATEGORIES, B2B & BUSINESS SERVICES
       </div>
       <div class="hero-subcategories-extra">
         <div class="hero-subcategories-rating-subcategories">
-          <p class="subtitle" style="color: #DFE0E5; padding-top: 2px;">
+          <p class="subtitle" style="color: black; padding-top: 2px;">
             <?php if (!empty($child_id->ratingvalue)) {
               echo number_format((float)$child_id->ratingvalue, 1, '.', '');
             } else {
@@ -82,7 +82,6 @@ Quick Dials- Business Services POPULAR CATEGORIES, B2B & BUSINESS SERVICES
 <!-- Courses -->
 <section class="courses-section ">
   <div class="container-childsubcategories " >
-    <h2 class="section-title-subcatgories">Explore Professional Courses Categories</h2>
     <div class="courses-grid-categories ">
       @if(!empty($childCategory))
       @foreach($childCategory as $child)

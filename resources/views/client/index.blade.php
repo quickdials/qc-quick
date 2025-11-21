@@ -13,20 +13,21 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
 <section class="hero-homepage">
   <div class="overlay">
     <h1>Find and provide services with ease.</h1>
-    <p>Connecting individuals, households, and organizations with experienced and verified service providers.</p>
+    <p>List Your Business for Free with India’s Local Search Engine & Grow Your Brand Online.</p>
     <div class="search-bar-homepage">
       <div class="input-box-homepage" style="border-right:1px solid #fdded6;">
-        <img src="{{ asset('client/img/homepageicons (2).svg') }}" alt="">
-        <form action="/searchlist" method="GET" class="search-form" autocomplete="off">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="white" height="30px" width="30px"><path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>      <form action="/searchlist" method="GET" class="search-form" autocomplete="off"> </form>
           <input type="text" placeholder="Location">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="white" height="30px" width="30px">
+  <path d="M231 256l107-107c9.4-9.4 9.4-24.6 0-34L325 102c-9.4-9.4-24.6-9.4-34 0L184 209 77 102c-9.4-9.4-24.6-9.4-34 0L46 115c-9.4 9.4-9.4 24.6 0 34l107 107L46 363c-9.4 9.4-9.4 24.6 0 34l13 13c9.4 9.4 24.6 9.4 34 0l107-107 107 107c9.4 9.4 24.6 9.4 34 0l13-13c9.4-9.4 9.4-24.6 0-34L231 256z"/>
+</svg>
       </div>
-      <div class="input-box-homepage" style="border-bottom:none">
-        <input type="text" placeholder="Select service">
-      <button class="search-btn-homepage">
-        <img src="{{ asset('client/img/homepageicons (1).svg') }}" alt="" width="40px" height="30px">
-      </button>
-            </div>
 
+      <div class="input-box-homepage" style="border-bottom:none">
+        <input type="text" placeholder="Select service" class="mobile-inputs">
+      <button class="search-btn-homepage">
+     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="white" height="25px" width="25px"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>      </button>
+            </div>
       </form>
       <!-- <script>
         const clearBtn = document.getElementById('clearBtn');
@@ -166,6 +167,18 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
       </div>
       <span class="category-name">Schools</span>
     </a>
+        <a href="{{ url('school-tuition') }}" class="category-item-country">
+      <div class="category-icon">
+ <div class="more-categories-">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 7H4" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+      <path d="M20 12H4" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+      <path d="M20 17H4" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+    </svg>
+</div>
+      </div>
+      <span class="category-name">More Categories</span>
+    </a>
   </div>
   </div>
 </section>
@@ -173,12 +186,12 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
 <!-- Categories Block -->
 <div class="container">
   <div class="section-header text-center">
-    <h2 class="section-title">Explore More Categories</h2>
+    <!-- <h2 class="section-title">Explore More Categories</h2> -->
   </div>
   <div class="categories-wrapper">
     <div class="categories-grid-header">
       <h1 class="categories-heading blue">Popular Search</h1>
-      <p class="categories-desc">Lorem ipsum dolor sit amet Sed at viverra eu.</p>
+      <!-- <p class="categories-desc">Lorem ipsum dolor sit amet Sed at viverra eu.</p> -->
     </div>
 
     <div class="row popular-list animation-sectionss">
@@ -256,9 +269,9 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
   <div class="categories-wrapper row">
     <div class="categories-grid-header">
       <h1 class="categories-heading orange">Repairs & Services</h1>
-      <p class="categories-desc">
+      <!-- <p class="categories-desc">
         Lorem ipsum dolor sit amet Sed at viverra eu.
-      </p>
+      </p> -->
     </div>
 
     <div class="row popular-list animation-sectionss">
@@ -333,9 +346,9 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
   <div class="categories-wrapper">
     <div class="categories-grid-header">
       <h1 class="categories-heading orange">Wedding Planning</h1>
-      <p class="categories-desc">
+      <!-- <p class="categories-desc">
         Lorem ipsum dolor sit amet Sed at viverra eu.
-      </p>
+      </p> -->
     </div>
 
     <div class="row popular-list animation-sectionss">
@@ -410,9 +423,9 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
   <div class="categories-wrapper">
     <div class="categories-grid-header">
       <h1 class="categories-heading orange">Entrance Exams </h1>
-      <p class="categories-desc">
+      <!-- <p class="categories-desc">
         Lorem ipsum dolor sit amet Sed at viverra eu.
-      </p>
+      </p> -->
     </div>
 
     <div class="row popular-list animation-sectionss">
@@ -491,7 +504,7 @@ Find Only Certified Training Institutes, Coaching Centers near you on quickdials
     @foreach($studyAbroad as $study)
     @if($study->child_slug != 'overseas-journalism-education-consultants' && $study->child_slug != 'overseas-engineering-education-consultant')
     @if($counter % 8 == 0)
-    <div class="categories-grid-country">
+    <div class="categories-grid-country-study">
       @endif
       <a href="{{ url('/child/' . $study->child_slug) }}" class="category-item-country">
         <div class="category-icon">

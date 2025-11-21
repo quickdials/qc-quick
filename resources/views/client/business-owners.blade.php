@@ -820,7 +820,7 @@ section.dark {
 /* Features Section */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
 }
 
@@ -1118,9 +1118,9 @@ section.dark {
 
 /* Footer */
 footer {
-    background-color: var(--footer-bg);
+    /* background-color: var(--footer-bg); */
     color: var(--footer-text);
-    padding: 4rem 0 2rem;
+    /* padding: 4rem 0 2rem; */
 }
 
 .footer-grid {
@@ -1178,7 +1178,7 @@ footer {
 }
 
 .footer-bottom {
-    text-align: center;
+    /* text-align: center; */
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--footer-text);
@@ -1821,6 +1821,13 @@ textarea.form-control {
     }
     .pricing-card:hover::before {
     height: 80px;
+}
+.fade-in-left   {
+    transform: translateX(0px);
+}
+.fade-in-right{
+    transform: translateX(0px);
+            margin-top: 30px;
 }
 }
     </style>
