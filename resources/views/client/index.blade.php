@@ -9,34 +9,317 @@ Find Best It Training Centre near You, Find Best It Training Institute near You,
 Find Only Certified Training Institutes, Coaching Centers near you on quickdials and Get Free counseling, Free Demo Classes, and Get Placement Assistence.
 @endsection
 @section('content')
+<Style>
+  @media only screen and (max-width: 600px) {
+    .searchbar{
+      flex-direction: column !important;
+    }
+  }
+  </style>
 <!-- Hero-homepage Section -->
-<section class="hero-homepage">
+<section class="hero-homepage" >
   <div class="overlay">
     <h1>Find and provide services with ease.</h1>
     <p>List Your Business for Free with India’s Local Search Engine & Grow Your Brand Online.</p>
-    <div class="search-bar-homepage">
-      <div class="input-box-homepage" style="border-right:1px solid #fdded6;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="white" height="30px" width="30px"><path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>      <form action="/searchlist" method="GET" class="search-form" autocomplete="off"> </form>
-          <input type="text" placeholder="Location">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="white" height="30px" width="30px">
-  <path d="M231 256l107-107c9.4-9.4 9.4-24.6 0-34L325 102c-9.4-9.4-24.6-9.4-34 0L184 209 77 102c-9.4-9.4-24.6-9.4-34 0L46 115c-9.4 9.4-9.4 24.6 0 34l107 107L46 363c-9.4 9.4-9.4 24.6 0 34l13 13c9.4 9.4 24.6 9.4 34 0l107-107 107 107c9.4 9.4 24.6 9.4 34 0l13-13c9.4-9.4 9.4-24.6 0-34L231 256z"/>
-</svg>
-      </div>
 
-      <div class="input-box-homepage" style="border-bottom:none">
-        <input type="text" placeholder="Select service" class="mobile-inputs">
-      <button class="search-btn-homepage">
-     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="white" height="25px" width="25px"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>      </button>
-            </div>
-      </form>
-      <!-- <script>
-        const clearBtn = document.getElementById('clearBtn');
-        const searchInput = document.getElementById('searchInput');
-        clearBtn.addEventListener('click', () => {
-          searchInput.value = '';
-        });
-      </script> -->
+
+
+
+
+
+<div class="search-bar-homepage" id="searchBarWrap" style="position:relative; overflow:visible; z-index:9999;">
+
+  <form action="/searchlist" method="GET" autocomplete="off" style="display:flex; width:100%;" class = "searchbar">
+
+    <!-- LOCATION FIELD -->
+    <div class="input-box-homepage location-search-box"
+         style="border-right:1px solid #fdded6; position:relative; overflow:visible; flex:1; display:flex; align-items:center; gap:8px;   border-top-left-radius: 22px;
+  border-bottom-left-radius: 22px;
+">
+
+      <!-- Location Pin Icon -->
+      <svg class="icon-location" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
+           fill="white" height="30px" width="30px">
+        <path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/>
+      </svg>
+
+      <input id="locationSearchInput" name="location" type="text" placeholder="Location"
+             style="flex:1; background:transparent; border:none; outline:none; color:inherit; " />
+
+      <!-- Clear X Icon -->
+      <svg id="clearLocationSearchBtn" class="icon-clear"
+           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+           fill="white" height="30px" width="30px" style="cursor:pointer;">
+        <path d="M231 256l107-107c9.4-9.4 9.4-24.6 0-34L325 102c-9.4-9.4-24.6-9.4-34 0L184 209 77 102c-9.4-9.4-24.6-9.4-34 0L46 115c-9.4 9.4-9.4 24.6 0 34l107 107L46 363c-9.4 9.4-9.4 24.6 0 34l13 13c9.4 9.4 24.6 9.4 34 0l107-107 107 107c9.4 9.4 24.6 9.4 34 0l13-13c9.4-9.4 9.4-24.6 0-34L231 256z"/>
+      </svg>
+
+<!-- LOCATION DROPDOWN -->
+<div id="locationSearchDropdown"
+     style="position:absolute; top:100%; left:0; right:0; margin-top:6px;
+            background:#fff; color:#111; border-radius:10px;
+            max-height:220px; overflow-y:auto; text-align:left;
+            z-index:9999999; box-shadow:0 8px 20px rgba(0,0,0,0.25);
+            display:none; height: 150px; overflow-y: scroll; ">
+
+  <!-- ✅ Detect Location always stays on top -->
+  <div id="detectLocationBtn"
+       style="display:flex; align-items:center; gap:10px;
+              padding:12px 14px; border-bottom:1px solid #eee;
+              cursor:pointer;">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"
+         fill="#007bff" height="22px" width="22px">
+      <path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 
+      391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 
+      371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 
+      320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/>
+    </svg>
+
+    <span style="font-size:15px; font-weight:600; color:#007bff;">
+      Detect Location
+    </span>
+  </div>
+
+  <!-- ✅ Location results render here -->
+  <div id="locationResults"></div>
+</div>
+
+      
     </div>
+
+
+    <!-- SERVICE FIELD -->
+    <div class="input-box-homepage"
+         style="border-bottom:none; position:relative; overflow:visible; flex:1; display:flex; align-items:center;   border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
+">
+
+      <input id="serviceInput" name="service" type="text" placeholder="Select service"
+             style="flex:1; background:transparent; border:none; outline:none; color:inherit;" />
+
+      <button class="search-btn-homepage" type="submit">
+        <!-- Search Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+             fill="white" height="25px" width="25px">
+          <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
+        </svg>
+      </button>
+
+      <!-- SERVICE DROPDOWN -->
+      <div id="serviceDropdown"
+           style="position:absolute; top:100%; left:0; right:0; margin-top:6px;
+                  background:#fff; color:#111; border-radius:10px; max-height:220px; overflow-y:auto;
+                  z-index:999999; box-shadow:0 8px 20px rgba(0,0,0,0.25);     text-align: left;  height: 150px; overflow-y: scroll;">
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<script>
+(function () {
+  const LOCATIONS = ["Port Louis","Curepipe","Grand Baie","Quatre Bornes","Rose Hill"];
+  const SERVICES  = ["Plumber","Electrician","AC Repair","Car Wash","Home Cleaning"];
+
+  // ✅ keep references so we can close the other one
+  let locationDropdownEl = null;
+  let serviceDropdownEl  = null;
+
+  function closeAll(exceptEl){
+    if(locationDropdownEl && locationDropdownEl !== exceptEl){
+      locationDropdownEl.style.display = "none";
+    }
+    if(serviceDropdownEl && serviceDropdownEl !== exceptEl){
+      serviceDropdownEl.style.display = "none";
+    }
+  }
+
+  // --------------------------
+  // LOCATION (with Detect row)
+  // --------------------------
+  function setupLocationDropdown() {
+    const input = document.getElementById("locationSearchInput");
+    const dropdown = document.getElementById("locationSearchDropdown");
+    const resultsBox = document.getElementById("locationResults");
+    const detectBtn = document.getElementById("detectLocationBtn");
+    const clearBtn = document.getElementById("clearLocationSearchBtn");
+
+    if (!input || !dropdown || !resultsBox) return;
+
+    locationDropdownEl = dropdown;
+
+    let filtered = LOCATIONS.slice();
+
+    function open(){
+      closeAll(dropdown);          // ✅ close service if open
+      dropdown.style.display = "block";
+    }
+    function close(){ dropdown.style.display = "none"; }
+
+    function render(list){
+      resultsBox.innerHTML = "";
+
+      if(!list.length){
+        resultsBox.innerHTML =
+          "<div style='padding:12px 14px;color:#777;font-size:15px;'>No results</div>";
+        open();
+        return;
+      }
+
+      list.forEach(val=>{
+        const row = document.createElement("div");
+        row.textContent = val;
+        row.style.cssText =
+          "padding:12px 14px;cursor:pointer;border-bottom:1px solid #eee;font-size:15px;";
+
+        row.addEventListener("mousedown", function(e){
+          e.preventDefault();
+          input.value = val;
+          close();
+        });
+
+        resultsBox.appendChild(row);
+      });
+
+      open();
+    }
+
+    input.addEventListener("focus", ()=>{
+      filtered = LOCATIONS.slice();
+      render(filtered);
+    });
+
+    input.addEventListener("click", (e)=>{
+      e.stopPropagation();
+      filtered = LOCATIONS.slice();
+      render(filtered);
+    });
+
+    input.addEventListener("input", (e)=>{
+      const q = e.target.value.toLowerCase();
+      filtered = LOCATIONS.filter(x => x.toLowerCase().includes(q));
+      render(filtered);
+    });
+
+    if(detectBtn){
+      detectBtn.addEventListener("mousedown", (e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        input.value = "Detecting...";
+        close();
+      });
+    }
+
+    if(clearBtn){
+      clearBtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        input.value = "";
+        input.focus();
+        render(LOCATIONS);
+      });
+    }
+
+    document.addEventListener("click", (e)=>{
+      if(!dropdown.contains(e.target) && e.target !== input){
+        close();
+      }
+    });
+  }
+
+  // --------------------------
+  // SERVICE (simple dropdown)
+  // --------------------------
+  function setupServiceDropdown() {
+    const input = document.getElementById("serviceInput");
+    const dropdown = document.getElementById("serviceDropdown");
+
+    if (!input || !dropdown) return;
+
+    serviceDropdownEl = dropdown;
+
+    let filtered = SERVICES.slice();
+
+    function open(){
+      closeAll(dropdown);          // ✅ close location if open
+      dropdown.style.display = "block";
+    }
+    function close(){ dropdown.style.display = "none"; }
+
+    function render(list){
+      dropdown.innerHTML = "";
+
+      if(!list.length){
+        dropdown.innerHTML =
+          "<div style='padding:12px 14px;color:#777;font-size:15px;'>No results</div>";
+        open();
+        return;
+      }
+
+      list.forEach(val=>{
+        const row = document.createElement("div");
+        row.textContent = val;
+        row.style.cssText =
+          "padding:12px 14px;cursor:pointer;border-bottom:1px solid #eee;font-size:15px;";
+
+        row.addEventListener("mousedown", function(e){
+          e.preventDefault();
+          input.value = val;
+          close();
+        });
+
+        dropdown.appendChild(row);
+      });
+
+      open();
+    }
+
+    input.addEventListener("focus", ()=>{
+      filtered = SERVICES.slice();
+      render(filtered);
+    });
+
+    input.addEventListener("click", (e)=>{
+      e.stopPropagation();
+      filtered = SERVICES.slice();
+      render(filtered);
+    });
+
+    input.addEventListener("input", (e)=>{
+      const q = e.target.value.toLowerCase();
+      filtered = SERVICES.filter(x => x.toLowerCase().includes(q));
+      render(filtered);
+    });
+
+    document.addEventListener("click", (e)=>{
+      if(!dropdown.contains(e.target) && e.target !== input){
+        close();
+      }
+    });
+  }
+
+  function init(){
+    setupLocationDropdown();
+    setupServiceDropdown();
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+
+
+
+
+
+
+
+
+
   </div>
   <div class="companydetailsbanner-homepage">
     <img src="{{ asset('client/img/homepagebanner1.jpg') }}" alt="" class="active1">
